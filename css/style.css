@@ -1,0 +1,100 @@
+/* Ventana Modal */
+#btn-modal {
+    display: none;
+}
+
+#btn-modal:checked~.container-modal {
+    display: flex;
+}
+
+.container-modal {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(144, 148, 150, 0.8);
+    display: none;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+.contenido-modal {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background: #d0e3f0;
+    border-radius: 15px;
+    margin: auto;
+    align-content: center;
+}
+
+.contenido-modal h1 {
+    text-align: center;
+    color: black;
+}
+
+.Sesion {
+    padding: 20px;
+    margin: auto;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.Sesion input {
+    margin: 5px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px;
+
+}
+
+.Sesion label {
+    padding-left: 16px;
+    background: transparent;
+    width: 100%;
+
+}
+
+.Sesion label button {
+    background: #0dcaf0;
+    width: 50%;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 30ms step-end;
+    border-radius: 10px;
+    height: 25px;
+    margin: auto;
+}
+
+.Sesion label button:hover {
+    background: #161033;
+    color: #ffffff;
+
+}
+
+.cierre-modal {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Fin ventana Modal */
+
+@media screen and (max-width: 945px){
+    .container-modal{
+        width: 90%;
+        margin: auto;
+    }
+}
+@media screen and (max-width: 700px){
+    .container-modal{
+        width: 90%;
+    }
+}
