@@ -1,7 +1,5 @@
 <?php
-// Credenciales de la base de datos
-session_start();
-echo "---------------------------------------------------------------------";
+// Credenciales de la base de dato
 $BD_HOST = "monorail.proxy.rlwy.net";
 $BD_USER = "root";
 $BD_PASSWORD = "NMASJkGOmTCTOUIFXxyrKnKpnqYrwgHl";
@@ -22,6 +20,6 @@ $BD = mysqli_connect($BD_HOST, $BD_USER, $BD_PASSWORD, $BD_NAME, $BD_PORT);
 // Verificar la conexión
 if ($BD->connect_error) {
     die("Error de conexión: " . $BD->connect_error);
-} else {
-    echo "Conexión exitosa";
-}
+ }// else {
+//     echo "Conexión exitosa";
+// }
