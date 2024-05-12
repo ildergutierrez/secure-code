@@ -8,7 +8,7 @@ $BD_PASSWORD = $_ENV['BD_PASSWORD'];
 $BD_NAME = $_ENV['BD_NAME'];
 $BD_PORT = $_ENV['BD_PORT'];
 
-$BD = mysqli_connect("$BD_HOST", "$BD_USER", "$BD_PASSWORD", "$BD_NAME", "$BD_PORT");
+$BD = mysqli_connect($BD_HOST,$BD_USER, $BD_PASSWORD,$BD_NAME,$BD_PORT);
 // $host = getenv('roundhouse.proxy.rlwy.net');
 // $username = 'root';
 // $password = 'foRywFWBeMEuYBfMvJhAWfzYBybpgGVI';
