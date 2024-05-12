@@ -146,11 +146,17 @@
           descargados... <br /><br />
         </div>
         <di class="container">
-          <!-- Código HTML omitido por brevedad -->
-
-
-
-          <!-- Código HTML omitido por brevedad -->
+          <?php
+          include('../php/conexion_bd.php');
+          $querry = ("SELECT * FROM Programas");
+          $resultado = $conexion->query($querry);
+          if($resultado ){
+            echo "exelente";
+          }
+          else{
+            echo"error";
+          }
+          ?>
         </di>
       </div>
       <br />

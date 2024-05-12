@@ -7,7 +7,7 @@ $BD_NAME = "railway";
 $BD_PORT = "55101";
 
 
-$BD = mysqli_connect($BD_HOST, $BD_USER, $BD_PASSWORD, $BD_NAME, $BD_PORT);
+$conexion = mysqli_connect($BD_HOST, $BD_USER, $BD_PASSWORD, $BD_NAME, $BD_PORT);
 // $host = getenv('roundhouse.proxy.rlwy.net');
 // $username = 'root';
 // $password = 'foRywFWBeMEuYBfMvJhAWfzYBybpgGVI';
