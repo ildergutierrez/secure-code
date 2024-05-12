@@ -1,13 +1,13 @@
 <?php
 // Credenciales de la base de datos
 session_start();
-
-$BD_HOST = $_ENV['BD_HOST'];
-$BD_USER = $_ENV['BD_USER'];
-$BD_PASSWORD = $_ENV['BD_PASSWORD'];
-$BD_NAME = $_ENV['BD_NAME'];
-$BD_PORT = $_ENV['BD_PORT'];
 echo"---------------------------------------------------------------------";
+$BD_HOST = $_ENV["BD_HOST"];
+$BD_USER = $_ENV["BD_USER"];
+$BD_PASSWORD = $_ENV["BD_PASSWORD"];
+$BD_NAME = $_ENV["BD_NAME"];
+$BD_PORT = $_ENV["BD_PORT"];
+
 
 $BD = mysqli_connect("$BD_HOST","$BD_USER", "$BD_PASSWORD","$BD_NAME","$BD_PORT");
 // $host = getenv('roundhouse.proxy.rlwy.net');
@@ -25,3 +25,4 @@ if ($BD->connect_error) {
 } else {
     echo "Conexión exitosa";
 }
+?>
