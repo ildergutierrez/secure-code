@@ -18,8 +18,8 @@ $conexion = mysqli_connect($BD_HOST, $BD_USER, $BD_PASSWORD, $BD_NAME, $BD_PORT)
 // $conexion = mysqli_connect("$host", "$username", "$password", "$database", "$port");
 
 // Verificar la conexión
-if ($BD->connect_error) {
-    die("Error de conexión: " . $BD->connect_error);
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
  }// else {
 //     echo "Conexión exitosa";
 // }
