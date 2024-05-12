@@ -151,7 +151,8 @@
           $querry = ("SELECT * FROM Programas");
           $resultado = $conexion->query($querry);
           if($resultado ){
-            echo "exelente";
+           $numero = $resultado->num_rows;
+            echo "exelente numero de filas: ".$numero;
           }
           else{
             echo"error";
