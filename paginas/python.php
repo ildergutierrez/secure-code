@@ -155,11 +155,11 @@
               if ($fila['Lenguaje'] == "Python") {
 
                 $numero = $resultado->num_rows;
-                echo "<div class='row'>";
+                echo "<div class='row' style='background: rgb(153, 192, 236)'>";
           ?>
                 <div class="col-4 d-flex justify-content-center"> <?php echo $fila['Nombre'] ?></div>
                 <div class="col-6 d-flex justify-content-center"><?php echo $fila['Descripcion'] ?></div>
-                <div class="col-2 d-flex justify-content-center"><?php echo $fila['Acceso'] ?></div>
+                <div class="col-2 d-flex justify-content-center"> <a href="<?php echo $fila['Acceso'] ?>"><img src="../img/descargar.png" alt="Descargar" width="50%" style="border-radius: 50%;"> </a></div>
           <?php  }
             }
             echo "</div>";
