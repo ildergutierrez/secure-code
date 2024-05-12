@@ -150,12 +150,21 @@
           include('../php/conexion_bd.php');
           $querry = ("SELECT * FROM Programas");
           $resultado = $conexion->query($querry);
-          if($resultado ){
-           $numero = $resultado->num_rows;
-            echo "exelente numero de filas: ".$numero;
-          }
-          else{
-            echo"error";
+          if ($resultado && $resultado->num_rows > 0) {
+            while ($fila = $resultado->fetch_assoc()) {
+              if ($fila['Lenguaje'] == "Python") {
+              }
+            }
+            $numero = $resultado->num_rows;
+            echo "<div class='row'>";
+          ?>
+            <div class="col-4 d-flex justify-content-center"> <?php echo $fila['Nombre'] ?></div>
+            <div class="col-6 d-flex justify-content-center"><?php echo $fila['Descripcion'] ?></div>
+            <div class="col-2 d-flex justify-content-center"><?php echo $fila['Acceso'] ?></div>
+          <?php
+            echo "</div>";
+          } else {
+            echo "error";
           }
           ?>
         </di>
