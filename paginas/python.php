@@ -127,7 +127,7 @@
       <!-- Fin del boton de donación -->
       <br />
 
-      <div class="container" style="background: #fff; border-radius: 15px; border-radius: 15px">
+      <div class="container" style="background: #fff; border-radius: 15px">
         <br />
         <div class="container" style="width: 90%">
           <center>
@@ -145,7 +145,7 @@
           <br /><br /><strong>Codigos en Python</strong> listos para ser
           descargados... <br /><br />
         </div>
-        <di class="container">
+        <div class="container" style="border-radius: 15px; width: 80%; border:solid 2px #000000; overflow: hidden; ">
           <?php
           include('../php/conexion_bd.php');
           $querry = ("SELECT * FROM Programas");
@@ -153,22 +153,23 @@
           if ($resultado && $resultado->num_rows > 0) {
             while ($fila = $resultado->fetch_assoc()) {
               if ($fila['Lenguaje'] == "Python") {
-
                 $numero = $resultado->num_rows;
-                echo "<div class='row' style='background: rgb(153, 192, 236)'>";
+                echo "<div class='row d-flex justify-content-between align-items-center flex-wrap' style='background: rgb(153, 192, 236); padding 12px;'>";
           ?>
-                <div class="col-4 d-flex justify-content-center"> <?php echo $fila['Nombre'] ?></div>
-                <div class="col-6 d-flex justify-content-center"><?php echo $fila['Descripcion'] ?></div>
-                <div class="col-2 d-flex justify-content-center"> <a href="<?php echo $fila['Acceso'] ?>"><img src="../img/descargar.png" alt="Descargar" width="50%" style="border-radius: 50%;"> </a></div>
-          <?php  }
+                <div class="col-3 d-flex justify-content-center"> <b><?php echo $fila['Nombre'] ?></b></div>
+                <div class="col-8 d-flex justify-content-center" style="padding: 10px; text-align: justify;"><?php echo $fila['Descripcion'] ?> </div>
+                <div class="col-1 d-flex justify-content-between align-items-center"> <br><br><br> <a href="<?php echo $fila['Acceso'] ?> " target="_blank" ><img src="../img/descargar archivo.png" alt="Descargar" width="50%" style="border-radius: 100%;"> </a></div>
+                <hr>
+          <?php   echo "</div>";}
             }
-            echo "</div>";
+           
+            
           } else {
             echo "error";
           }
           ?>
-        </di>
-      </div>
+        </div><br><br><br>
+      </div> 
       <br />
     </main>
     <footer>
