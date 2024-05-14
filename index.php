@@ -185,86 +185,88 @@
             en la materia, estos son proyectos o simplemente codigos para el
             facilitamiento de la adquisicion de los mismos. Tambien podra
             encontrar un
-            <a  href="paginas/glosario.php">glosario</a>
+            <a href="paginas/glosario.php">glosario</a>
             de terminos o paginas donde podras reafirmar la información o
             adquisicion de la misma. <br /><br />
             Los lenguajes de programacion que podra encontrar en esta pagina
             actualmentes son:
           </p>
           <br /><br />
-          <div class="row" style="background: #919797">
-            <div class="col-2">
-              <strong>
-                <center>Nombre</center>
-              </strong>
+          <div class="container" style="border-radius: 15px; overflow: hidden;">
+            <div class="row" style="background: #919797">
+              <div class="col-2">
+                <strong>
+                  <center>Nombre</center>
+                </strong>
+              </div>
+              <div class="col-4">
+                <strong>
+                  <center>Logo</center>
+                </strong>
+              </div>
+              <div class="col-6">
+                <strong>
+                  <center>IDE</center>
+                </strong>
+              </div>
             </div>
-            <div class="col-4">
-              <strong>
-                <center>Logo</center>
-              </strong>
-            </div>
-            <div class="col-6">
-              <strong>
-                <center>IDE</center>
-              </strong>
-            </div>
-          </div>
-          <!-- C# -->
-          <div class="row" style="background: rgb(189, 165, 196)">
-            <div class="col-md-3 d-flex align-items-center justify-content-center ">
-              <center>
-                <h2>
-                  <strong><a href="paginas/Csharp.html" style="text-decoration: none; color: #000000">C#</a></strong>
-                </h2>
-              </center>
-            </div>
-            <div class="col-md-3 d-flex align-items-center justify-content-center ">
-              <center><img src="img/C.png" alt="C#" width="40%" /></center>
-            </div>
-            <div class="col-md-6 d-flex align-items-center justify-content-center ">
-              
+            <!-- C# -->
+            <div class="row" style="background: rgb(189, 165, 196)">
+              <div class="col-md-3 d-flex align-items-center justify-content-center ">
+                <center>
+                  <h2>
+                    <strong><a href="paginas/Csharp.php" style="text-decoration: none; color: #000000">C#</a></strong>
+                  </h2>
+                </center>
+              </div>
+              <div class="col-md-3 d-flex align-items-center justify-content-center ">
+                <center><img src="img/C.png" alt="C#" width="40%" /></center>
+              </div>
+              <div class="col-md-6 d-flex align-items-center justify-content-center ">
+
                 <iframe width="80%" height="250px" src="https://www.youtube.com/embed/8O7PopSscBE?si=WBcpqoN9r8F5y_Ap" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 20px; padding: 12px"></iframe>
-              
-            </div>
-          </div>
-          <!-- Python -->
-          <div class="row" style="background: rgb(153, 192, 236)">
-            <div class="col-md-3 d-flex align-items-center justify-content-center ">
-              <center>
-                <h2>
-                  <strong><a href="paginas/python.html" style="text-decoration: none; color: #000000">Python</a></strong>
-                </h2>
-              </center>
-            </div>
-            <div class="col-md-3 d-flex align-items-center justify-content-center ">
-              <center>
-                <img src="img/python--2.png" alt="Python" width="100%" />
-              </center>
-            </div>
-            <div class="col-md-6 d-flex align-items-center justify-content-center ">
 
-              <iframe width="80%" height="250px" src="https://www.youtube.com/embed/IcFvElQNo4A?si=e011vnF0hJm0eCkU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 20px; padding: 12px"></iframe>
-
+              </div>
             </div>
-          </div>
-          <!-- Java -->
-          <div class="row" style="background: rgb(240, 218, 146)">
-            <div class="col-md-3 d-flex align-items-center justify-content-center ">
-              <center>
-                <h2>
-                  <strong><a href="paginas/Java.html" style="text-decoration: none; color: #000000">Java</a></strong>
-                </h2>
-              </center>
-            </div>
-            <div class="col-md-3 d-flex align-items-center justify-content-center  ">
-              <center>
-                <img src="img/java-2.png" alt="Java" width="100%" />
-              </center>
-            </div>
-            <div class="col-md-6 d-flex align-items-center justify-content-center ">
+            <!-- Python -->
+            <div class="row" style="background: rgb(153, 192, 236)">
+              <div class="col-md-3 d-flex align-items-center justify-content-center ">
+                <center>
+                  <h2>
+                    <strong><a href="paginas/python.php" style="text-decoration: none; color: #000000">Python</a></strong>
+                  </h2>
+                </center>
+              </div>
+              <div class="col-md-3 d-flex align-items-center justify-content-center ">
+                <center>
+                  <img src="img/python--2.png" alt="Python" width="100%" />
+                </center>
+              </div>
+              <div class="col-md-6 d-flex align-items-center justify-content-center ">
 
-              <iframe width="80%" height="250px" src="https://www.youtube.com/embed/47poaxfou94?si=Esmn16OyBDI9Jk5l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 20px; padding: 12px"></iframe>
+                <iframe width="80%" height="250px" src="https://www.youtube.com/embed/IcFvElQNo4A?si=e011vnF0hJm0eCkU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 20px; padding: 12px"></iframe>
 
+              </div>
+            </div>
+            <!-- Java -->
+            <div class="row" style="background: rgb(240, 218, 146)">
+              <div class="col-md-3 d-flex align-items-center justify-content-center ">
+                <center>
+                  <h2>
+                    <strong><a href="paginas/Java.php" style="text-decoration: none; color: #000000">Java</a></strong>
+                  </h2>
+                </center>
+              </div>
+              <div class="col-md-3 d-flex align-items-center justify-content-center  ">
+                <center>
+                  <img src="img/java-2.png" alt="Java" width="100%" />
+                </center>
+              </div>
+              <div class="col-md-6 d-flex align-items-center justify-content-center ">
+
+                <iframe width="80%" height="250px" src="https://www.youtube.com/embed/47poaxfou94?si=Esmn16OyBDI9Jk5l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 20px; padding: 12px"></iframe>
+
+              </div>
             </div>
           </div>
           <br />
