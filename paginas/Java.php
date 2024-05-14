@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Java</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
+
     <link rel="icon" href="../img/Descargas-Seguras.png" />
 </head>
 <style>
@@ -39,6 +41,36 @@
 
 <body>
     <div class="container-fluid" style="padding: 0; ">
+        <!-- MODAL -->
+        <div class="modal" tabindex="-1" id="modal-iniciar-sesion">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background: #6309c3">
+                        <h5 class="modal-title" style="color: #ffffff">
+                            <center>
+                                <img src="../img/icono.ico" alt="Logo" style="border-radius: 100%; width: 30%" />
+                                &ensp; Iniciar Sesión
+                            </center>
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" style="background: #e0d4ed">
+                        <form action="">
+                            <input type="text" class="form-control" id="recipient-name" placeholder="Usuario" /><br />
+                            <input type="password" class="form-control" id="recipient-name" placeholder="Contrsaeña" />
+                    </div>
+                    <div class="modal-footer" style="background: #e0d4ed">
+                        <button type="button" class="btn btn-primary">
+                            Iniciar sesión
+                        </button></form>
+                        <br />
+                        <center><a href=""> Olvide mi contraseña</a></center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIN -->
+
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light" style="
             background: #e1e3f7;
@@ -47,95 +79,117 @@
             width: 100%;
             padding: 0;
           ">
-                <div class="container-fluid" style="background: #060f63; ">
-                    <a class="navbar-brand" href="../index.html"><img src="../img/icono-pagina-Descargas-seguras.png"
-                            alt="Logo" style="width: 50px; border-radius: 30px" /></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="container-fluid" style="background: #060f63">
+                    <a class="navbar-brand" href="../index.php"><img src="../img/icono.ico" alt="Logo" width="70px" /></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="../index.html"
-                                    style="color: #ffffff; font-size: 20px;">Inicio</a>
+                                <a style="color: #ffffff; font-size: 20px" class="nav-link" href="../index.php">Inicio</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false"
-                                    style="color: #ffffff; font-size: 20px;">
+                                <a style="color: #ffffff; font-size: 20px" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Codigos
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="Csharp.html">C#</a></li>
+                                <ul style="color: #ffffff; font-size: 20px" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <a class="dropdown-item" href="python.html">Python</a>
+                                        <a class="dropdown-item" href="python.php">Python</a>
                                     </li>
-                                    <a class="dropdown-item" href="Java.html">Java</a>
+                                    <li><a class="dropdown-item" href="Csharp.php">c#</a></li>
+                                    <li><a class="dropdown-item" href="Java.php">Java</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider" />
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="glosario.php">Glosario</a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li>
-                                <hr class="dropdown-divider">
+                            <li class="nav-item">
+                                <a style="color: #ffffff; font-size: 20px" class="nav-link" href="Nosotros.php">Nosotros</a>
                             </li>
-                            </li>
-                            <a class="dropdown-item" href="glosario.html">Glosario</a>
+                            <li class="nav-item">
+                                <a style="color: #ffffff; font-size: 20px" class="nav-link" href="contactos.php">Contactos</a>
                             </li>
                         </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="Nosotros.html" style="color: #ffffff; font-size: 20px;">Nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contactos.html" style="color: #ffffff; font-size: 20px;">Contacto</a>
-                        </li>
-                        </ul>
+                        <form class="d-flex">
+                            <button style="color: #ffffff; font-size: 20px" class="btn btn-outline-info" type="button" data-bs-toggle="modal" data-bs-target="#modal-iniciar-sesion">
+                                Iniciar sesión
+                            </button>
+                        </form>
                     </div>
                 </div>
             </nav>
         </header>
         <main>
             <!-- Donación -->
-            <a href="https://www.paypal.com/donate/?hosted_button_id=G4MSNR6JU3PB2" target="_blank"><img
-                    class="Donacion" src="../img/donacion paypal.png" alt="Donacion" title="Donación" width="60px" /></a>
+            <a href="https://www.paypal.com/donate/?hosted_button_id=G4MSNR6JU3PB2" target="_blank"><img class="Donacion" src="../img/donacion paypal.png" alt="Donacion" title="Donación" width="60px" /></a>
             <!-- Fin del boton de donación -->
             <br />
             <div class="container" style="background: #fff; border-radius: 15px; border-radius: 15px;">
                 <br>
                 <div class="container" style="width: 90%;">
-                    <center> <img src="../img/java-trabajo.png" alt="Python" width="100%" height="300em"
-                            style="border-radius: 15px;"> </center>
+                    <center> <img src="../img/java-trabajo.png" alt="Python" width="100%" height="300em" style="border-radius: 15px;"> </center>
                 </div> <br><br>
-                <div class="container"  style="padding: 30px;">
-                 
+                <div class="container" style="padding: 30px;">
+
                     <strong>Java</strong> es una plataforma informática de lenguaje de
                     programación creada por Sun Microsystems en 1995. Ha evolucionado desde
                     sus humildes comienzos hasta impulsar una gran parte del mundo digital
                     actual, ya que es una plataforma fiable en la que se crean muchos
                     servicios y aplicaciones..
-            
+
                     <br /><br /><strong>Codigos en Java</strong> listos para ser
                     descargados... <br /><br />
                 </div>
+                <div class="container" style="width: 95%; background: rgb(240, 218, 146); padding: 25px; border-radius: 15px;">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+                            <table class="table  table-striped  " id="Tabla_usarios" style="border-radius: 15px;">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Descripcion</th>
+                                        <th>Descargar</th>
 
+                                    </tr>
+                                </thead>
+                                <tbody id="tablebody_usuario"></tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
             </div>
             <br>
         </main>
         <footer>
             <div class="container" style="background: #000000; color:#ffffff; border-radius: 50px;">
                 <p>
-                  <br>  <center><img src="../img/ubicacion.png" alt="ubicacion" width="20px"> - Colombia &ensp; <img
-                            width="20px" src="../img/Descargas-Seguras.png" alt="logo">
+                    <br>
+                    <center><img src="../img/ubicacion.png" alt="ubicacion" width="20px"> - Colombia &ensp; <img width="20px" src="../img/Descargas-Seguras.png" alt="logo">
                         - Desacargas Seguras <br><br>
                         <center>copyright: © Ilder Alberto Gutierrez Beleño</center>
                         **Toda donación que se realize esta destinada al pago de los servidores y mantenimiento de la
                         pagina, asi podemos asegurar que esta pagina
-                        siga en funcionamiento.**</center><br>
+                        siga en funcionamiento.**
+                    </center><br>
                 </p>
             </div>
         </footer>
     </div>
-</body> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="../Js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../Js/bootstrap.bundle.min.js"></script>
+    <!-- Jquerry -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- data table -->
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+    <script src="../Js/Java.js"></script>
+</body>
 
 </html>

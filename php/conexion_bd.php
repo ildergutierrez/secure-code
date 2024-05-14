@@ -7,10 +7,11 @@ $BD_NAME = "railway";
 $BD_PORT = "55101";
 
 
-$conexion = mysqli_connect($BD_HOST, $BD_USER, $BD_PASSWORD, $BD_NAME, $BD_PORT);
+$conexion = new mysqli($BD_HOST, $BD_USER, $BD_PASSWORD, $BD_NAME, $BD_PORT);
+
 
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
- }// else {
+}// else {
 //     echo "Conexión exitosa";
 // }

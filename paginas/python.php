@@ -1,3 +1,7 @@
+<?php $cont = 0;
+$valor = 0;
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,6 +10,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python</title>
   <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <!-- <link rel="" href=""/> -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
   <link rel="icon" href="../img/Descargas-Seguras.png" />
 </head>
 <style>
@@ -145,31 +151,26 @@
           <br /><br /><strong>Codigos en Python</strong> listos para ser
           descargados... <br /><br />
         </div>
-        <div class="container" style="border-radius: 15px; width: 80%; border:solid 2px #000000; overflow: hidden; ">
-          <?php
-          include('../php/conexion_bd.php');
-          $querry = ("SELECT * FROM Programas");
-          $resultado = $conexion->query($querry);
-          if ($resultado && $resultado->num_rows > 0) {
-            while ($fila = $resultado->fetch_assoc()) {
-              if ($fila['Lenguaje'] == "Python") {
-                $numero = $resultado->num_rows;
-                echo "<div class='row d-flex justify-content-between align-items-center flex-wrap' style='background: rgb(153, 192, 236); padding 12px;'>";
-          ?>
-                <div class="col-3 d-flex justify-content-center"> <b><?php echo $fila['Nombre'] ?></b></div>
-                <div class="col-8 d-flex justify-content-center" style="padding: 10px; text-align: justify;"><?php echo $fila['Descripcion'] ?> </div>
-                <div class="col-1 d-flex justify-content-between align-items-center"> <br><br><br> <a href="<?php echo $fila['Acceso'] ?> " target="_blank" ><img src="../img/descargar archivo.png" alt="Descargar" width="50%" style="border-radius: 100%;"> </a></div>
-                <hr>
-          <?php   echo "</div>";}
-            }
-           
-            
-          } else {
-            echo "error";
-          }
-          ?>
-        </div><br><br><br>
-      </div> 
+        <div class="container" style="width: 95%; background: rgb(153, 192, 236); padding: 25px; border-radius: 15px;">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 " >
+              <table class="table  table-striped  " id="Tabla_usarios" style="border-radius: 15px;">
+                <thead >
+                  <tr >
+                    <th >Nombre</th>
+                    <th >Descripcion</th>
+                    <th>Descargar</th>
+
+                  </tr>
+                </thead>
+                <tbody id="tablebody_usuario" ></tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+<br><br><br>
+      </div>
       <br />
     </main>
     <footer>
@@ -191,11 +192,17 @@
       </div>
     </footer>
   </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="../Js/bootstrap.bundle.min.js"></script>
+  <!-- Jquerry -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- data table -->
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+  <script src="../Js/python.js"></script>
 </body>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="../Js/bootstrap.bundle.min.js"></script>
-<!-- firebase -->
-
 
 </html>
