@@ -10,7 +10,7 @@
 </head>
 <style>
   body {
-    background: #b1c0c2;
+    background: rgb(199, 249, 231);
   }
 
   .Donacion {
@@ -76,21 +76,21 @@
             width: 100%;
             padding: 0;
           ">
-        <div class="container-fluid" style="background: #060f63">
-          <a class="navbar-brand" href="index.php"><img src="img/icono.ico" alt="Logo" width="70px" /></a>
+        <div class="container-fluid" style="background: rgb(210, 199, 249  )">
+          <a class="navbar-brand" href="index.php"><img src="img/icono.ico" alt="Logo" width="70px" style="border-radius: 100%;" /></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a style="color: #ffffff; font-size: 20px" class="nav-link" href="index.php">Inicio</a>
+                <a style="color: #000000; font-size: 20px" class="nav-link" href="index.php">Inicio</a>
               </li>
               <li class="nav-item dropdown">
-                <a style="color: #ffffff; font-size: 20px" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a style="color: #000000; font-size: 20px" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Codigos
                 </a>
-                <ul style="color: #ffffff; font-size: 20px" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <ul style="color: #000000; font-size: 20px" class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
                     <a class="dropdown-item" href="paginas/python.php">Python</a>
                   </li>
@@ -109,14 +109,14 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a style="color: #ffffff; font-size: 20px" class="nav-link" href="paginas/Nosotros.php">Nosotros</a>
+                <a style="color: #000000; font-size: 20px" class="nav-link" href="paginas/Nosotros.php">Nosotros</a>
               </li>
               <li class="nav-item">
-                <a style="color: #ffffff; font-size: 20px" class="nav-link" href="paginas/contactos.php">Contactos</a>
+                <a style="color: #000000; font-size: 20px" class="nav-link" href="paginas/contactos.php">Contactos</a>
               </li>
             </ul>
             <form class="d-flex">
-              <button style="color: #ffffff; font-size: 20px" class="btn btn-outline-info" type="button" data-bs-toggle="modal" data-bs-target="#modal-iniciar-sesion">
+              <button style="color: #000000; font-size: 20px; background: rgb(225, 219, 245 ); border: solid 1px #000000;" class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal-iniciar-sesion">
                 Iniciar sesión
               </button>
             </form>
@@ -171,7 +171,7 @@
       <br />
       <div class="container">
         <div class="container" style="
-              background: #e1f6f7;
+              background: #ffffff;
               border-radius: 15px;
               padding: 35px;
               text-align: justify;
@@ -185,7 +185,7 @@
             en la materia, estos son proyectos o simplemente codigos para el
             facilitamiento de la adquisicion de los mismos. Tambien podra
             encontrar un
-            <a class="" href="paginas/Glosario.html">glosario</a>
+            <a class="" href="paginas/glosario.php">glosario</a>
             de terminos o paginas donde podras reafirmar la información o
             adquisicion de la misma. <br /><br />
             Los lenguajes de programacion que podra encontrar en esta pagina
@@ -211,60 +211,60 @@
           </div>
           <!-- C# -->
           <div class="row" style="background: rgb(189, 165, 196)">
-            <div class="col-2 d-flex align-items-center justify-content-center">
+            <div class="col-md-3 d-flex align-items-center justify-content-center ">
               <center>
                 <h2>
                   <strong><a href="paginas/Csharp.html" style="text-decoration: none; color: #000000">C#</a></strong>
                 </h2>
               </center>
             </div>
-            <div class="col-4 d-flex align-items-center justify-content-center">
+            <div class="col-md-3 d-flex align-items-center justify-content-center ">
               <center><img src="img/C.png" alt="C#" width="40%" /></center>
             </div>
-            <div class="col-6 d-flex align-items-center justify-content-center">
-              <center>
-                <iframe width="460" height="315" src="https://www.youtube.com/embed/8O7PopSscBE?si=WBcpqoN9r8F5y_Ap" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 20px; padding: 12px"></iframe>
-              </center>
+            <div class="col-md-6 d-flex align-items-center justify-content-center ">
+              
+                <iframe width="80%" height="250px" src="https://www.youtube.com/embed/8O7PopSscBE?si=WBcpqoN9r8F5y_Ap" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 20px; padding: 12px"></iframe>
+              
             </div>
           </div>
           <!-- Python -->
           <div class="row" style="background: rgb(153, 192, 236)">
-            <div class="col-2 d-flex align-items-center justify-content-center">
+            <div class="col-md-3 d-flex align-items-center justify-content-center ">
               <center>
                 <h2>
                   <strong><a href="paginas/python.html" style="text-decoration: none; color: #000000">Python</a></strong>
                 </h2>
               </center>
             </div>
-            <div class="col-4 d-flex align-items-center justify-content-center">
+            <div class="col-md-3 d-flex align-items-center justify-content-center ">
               <center>
-                <img src="img/python--2.png" alt="Python" width="40%" />
+                <img src="img/python--2.png" alt="Python" width="100%" />
               </center>
             </div>
-            <div class="col-6 d-flex align-items-center justify-content-center">
-              <center>
-                <iframe width="460" height="315" src="https://www.youtube.com/embed/IcFvElQNo4A?si=e011vnF0hJm0eCkU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 20px; padding: 12px"></iframe>
-              </center>
+            <div class="col-md-6 d-flex align-items-center justify-content-center ">
+
+              <iframe width="80%" height="250px" src="https://www.youtube.com/embed/IcFvElQNo4A?si=e011vnF0hJm0eCkU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 20px; padding: 12px"></iframe>
+
             </div>
           </div>
           <!-- Java -->
           <div class="row" style="background: rgb(240, 218, 146)">
-            <div class="col-2 d-flex align-items-center justify-content-center">
+            <div class="col-md-3 d-flex align-items-center justify-content-center ">
               <center>
                 <h2>
-                  <strong><a href="paginas/Java.html" style="text-decoration: none; color: #000000">Javas</a></strong>
+                  <strong><a href="paginas/Java.html" style="text-decoration: none; color: #000000">Java</a></strong>
                 </h2>
               </center>
             </div>
-            <div class="col-4 d-flex align-items-center justify-content-center">
+            <div class="col-md-3 d-flex align-items-center justify-content-center  ">
               <center>
-                <img src="img/java-2.png" alt="Java" width="40%" />
+                <img src="img/java-2.png" alt="Java" width="100%" />
               </center>
             </div>
-            <div class="col-6 d-flex align-items-center justify-content-center">
-              <center>
-                <iframe width="460" height="315" src="https://www.youtube.com/embed/47poaxfou94?si=Esmn16OyBDI9Jk5l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 20px; padding: 12px"></iframe>
-              </center>
+            <div class="col-md-6 d-flex align-items-center justify-content-center ">
+
+              <iframe width="80%" height="250px" src="https://www.youtube.com/embed/47poaxfou94?si=Esmn16OyBDI9Jk5l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 20px; padding: 12px"></iframe>
+
             </div>
           </div>
           <br />

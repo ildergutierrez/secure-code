@@ -16,7 +16,7 @@ $valor = 0;
 </head>
 <style>
   body {
-    background: #b1c0c2;
+    background: rgb(199, 249, 231);
   }
 
   .Donacion {
@@ -59,14 +59,13 @@ $valor = 0;
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" style="background: #e0d4ed">
-            <form action="">
-              <input type="text" class="form-control" id="recipient-name" placeholder="Usuario" /><br />
-              <input type="password" class="form-control" id="recipient-name" placeholder="Contrsaeña" />
+            <input type="text" class="form-control" id="recipient-name" placeholder="Usuario" /><br />
+            <input type="password" class="form-control" id="recipient-name" placeholder="Contrsaeña" />
           </div>
           <div class="modal-footer" style="background: #e0d4ed">
             <button type="button" class="btn btn-primary">
               Iniciar sesión
-            </button></form>
+            </button>
             <br />
             <center><a href=""> Olvide mi contraseña</a></center>
           </div>
@@ -83,26 +82,30 @@ $valor = 0;
             width: 100%;
             padding: 0;
           ">
-        <div class="container-fluid" style="background: #060f63">
-          <a class="navbar-brand" href="../index.php"><img src="../img/icono.ico" alt="Logo" width="70px" /></a>
+        <div class="container-fluid" style="background: rgb(210, 199, 249  )">
+          <a class="navbar-brand" href="index.php"><img src="../img/icono.ico" alt="Logo" width="70px" style="border-radius: 100%;" /></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a style="color: #ffffff; font-size: 20px" class="nav-link" href="../index.php">Inicio</a>
+                <a style="color: #000000; font-size: 20px" class="nav-link" href="index.php">Inicio</a>
               </li>
               <li class="nav-item dropdown">
-                <a style="color: #ffffff; font-size: 20px" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a style="color: #000000; font-size: 20px" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Codigos
                 </a>
-                <ul style="color: #ffffff; font-size: 20px" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <ul style="color: #000000; font-size: 20px" class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
                     <a class="dropdown-item" href="python.php">Python</a>
                   </li>
-                  <li><a class="dropdown-item" href="Csharp.php">c#</a></li>
-                  <li><a class="dropdown-item" href="Java.php">Java</a></li>
+                  <li>
+                    <a class="dropdown-item" href="Csharp.php">c#</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="Java.php">Java</a>
+                  </li>
                   <li>
                     <hr class="dropdown-divider" />
                   </li>
@@ -112,14 +115,14 @@ $valor = 0;
                 </ul>
               </li>
               <li class="nav-item">
-                <a style="color: #ffffff; font-size: 20px" class="nav-link" href="Nosotros.php">Nosotros</a>
+                <a style="color: #000000; font-size: 20px" class="nav-link" href="Nosotros.php">Nosotros</a>
               </li>
               <li class="nav-item">
-                <a style="color: #ffffff; font-size: 20px" class="nav-link" href="contactos.php">Contactos</a>
+                <a style="color: #000000; font-size: 20px" class="nav-link" href="contactos.php">Contactos</a>
               </li>
             </ul>
             <form class="d-flex">
-              <button style="color: #ffffff; font-size: 20px" class="btn btn-outline-info" type="button" data-bs-toggle="modal" data-bs-target="#modal-iniciar-sesion">
+              <button style="color: #000000; font-size: 20px; background: rgb(225, 219, 245 ); border: solid 1px #000000;" class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal-iniciar-sesion">
                 Iniciar sesión
               </button>
             </form>
@@ -127,6 +130,7 @@ $valor = 0;
         </div>
       </nav>
     </header>
+
     <main>
       <!-- Donación -->
       <a href="https://www.paypal.com/donate/?hosted_button_id=G4MSNR6JU3PB2" target="_blank"><img class="Donacion" src="../img/donacion paypal.png" alt="Donacion" title="Donación" width="60px" /></a>
@@ -153,23 +157,23 @@ $valor = 0;
         </div>
         <div class="container" style="width: 95%; background: rgb(153, 192, 236); padding: 25px; border-radius: 15px;">
           <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 " >
-              <table class="table  table-striped  " id="Tabla_usarios" style="border-radius: 15px;">
-                <thead >
-                  <tr >
-                    <th >Nombre</th>
-                    <th >Descripcion</th>
+            <div class="md">
+              <table class="table  table-striped" id="Tabla_usarios" style="border-radius: 5px;">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
                     <th>Descargar</th>
 
                   </tr>
                 </thead>
-                <tbody id="tablebody_usuario" ></tbody>
+                <tbody id="tablebody_usuario"></tbody>
               </table>
 
             </div>
           </div>
         </div>
-<br><br><br>
+        <br><br><br>
       </div>
       <br />
     </main>

@@ -6,9 +6,7 @@ const dataopciones = {
         { className: "centered", targets: [0, 2] },
         { className: "justified", targets: [1] },
         { orderable: false, targets: [0, 1, 2] },
-        { "width": "20%", targets: [0] },
-        { "width": "70%", targets: [1] },
-        { "width": "10%", targets: [2] },
+       
     ],
 
     searching: false,
@@ -50,9 +48,9 @@ const user = async () => {
 
             contenido += `
                 <tr>
-                    <td>${user.Nombre}</td> 
-                    <td> <div style=" text-align: justify;">${user.Descripcion}</div></td>  
-                    <td ><a href="${user.Acceso}" target="_blank"><img  src="../img/descargar archivo.png" alt="Descargar" width="30px" style="border-radius: 100%;"> </a></td>
+                    <td><div class="md-3 d-flex align-items-center justify-content-center ">${user.Nombre}</div></td> 
+                    <td> <div class="md-7 d-flex align-items-center justify-content-center ">${user.Descripcion}</div></td>  
+                    <td > <div class="md-2 d-flex align-items-center justify-content-center "> <a href="${user.Acceso}" target="_blank"><img  src="../img/descargar archivo.png" alt="Descargar" width="30px" style="border-radius: 100%;"> </a></div></td>
                 </tr>`;
 
         });
