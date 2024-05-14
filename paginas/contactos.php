@@ -83,7 +83,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a style="color: #000000; font-size: 20px" class="nav-link" href="index.php">Inicio</a>
+                                <a style="color: #000000; font-size: 20px" class="nav-link" href="../index.php">Inicio</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a style="color: #000000; font-size: 20px" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

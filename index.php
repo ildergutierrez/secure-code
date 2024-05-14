@@ -185,7 +185,7 @@
             en la materia, estos son proyectos o simplemente codigos para el
             facilitamiento de la adquisicion de los mismos. Tambien podra
             encontrar un
-            <a class="" href="paginas/glosario.php">glosario</a>
+            <a  href="paginas/glosario.php">glosario</a>
             de terminos o paginas donde podras reafirmar la información o
             adquisicion de la misma. <br /><br />
             Los lenguajes de programacion que podra encontrar en esta pagina
