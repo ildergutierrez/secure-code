@@ -1,7 +1,6 @@
 <!-- verifica si inicio o no sesión-->
 <?php
 session_start();
-
 if (isset($_SESSION['Email'])) {
   $inicio = "paginas/inicio.php";
   echo "<script>
@@ -236,7 +235,7 @@ if (isset($_SESSION['Email'])) {
     <br /><br />
     <!-- Publicidad -->
     <div>
-    <a href="" target="_blank"> <img class="publicidad" src="img/hacker-2883632_1920.jpg" alt="Publicidad"></a>
+      <a href="" target="_blank"> <img class="publicidad" src="img/hacker-2883632_1920.jpg" alt="Publicidad"></a>
     </div>
     <div>
       <a href="" target="_blank"> <img class="publicidad2" src="giphy.gif" alt="Publicidad"></img></a>
