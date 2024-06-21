@@ -5,7 +5,6 @@ include("conexion_bd.php");
 $sql = "SELECT * FROM Csharp";
 $resultado = $conexion->query($sql);
 
-
 $usuarios = array();
 
 if ($resultado->num_rows > 0) {
@@ -14,8 +13,6 @@ if ($resultado->num_rows > 0) {
         $usuarios[] = $fila;
     }
 }
-
-
 echo json_encode($usuarios);
 
 

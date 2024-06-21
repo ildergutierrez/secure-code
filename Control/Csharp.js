@@ -5,18 +5,16 @@ const dataopciones = {
     columnDefs: [
         { className: "centered", targets: [0, 2] },
         { className: "justified", targets: [1] },
-        { orderable: false, targets: [0, 1, 2] },
+        { orderable: false, targets: [0, 1, 2] },],
 
-    ],
-
-    searching: false,
+    searching: true,
     pageLength: 5,
     destroy: true,
     language: {
         lengthMenu: "Mostrar _MENU_ registros por página",
-        zeroRecords: "Ningún usuario encontrado",
+        zeroRecords: "Ningún Codigo C# encontrado",
         info: "Mostrando de _START_ a _END_ de un total de _TOTAL_ registros",
-        infoEmpty: "Ningún usuario encontrado",
+        infoEmpty: "Ningún codigo C# encontrado",
         infoFiltered: "(filtrados desde _MAX_ registros totales)",
         search: "Buscar:",
         loadingRecords: "Cargando...",
@@ -41,16 +39,16 @@ const iniciodatatable = async () => {
 
 const user = async () => {
     try {
-        const respuest = await fetch("../php/conexion_Java.php");
+        const respuest = await fetch("../php/conexion_Csharp.php");
         const usuarios = await respuest.json();
         let contenido = ``;
         usuarios.forEach((user, index) => {
-
+            ruta = 'presentar_descripcion.php?ruta=' + btoa(user.Acceso) + "&rt=" + btoa(user.id) + "&tipo=" + btoa("csharp");
             contenido += `
             <tr>
             <td><div class="md-3 d-flex align-items-center justify-content-center ">${user.Nombre}</div></td> 
-            <td> <div class="md-7 d-flex align-items-center justify-content-center ">${user.Descripcion}</div></td>  
-            <td > <div class="md-2 d-flex align-items-center justify-content-center "> <a href="${user.Acceso}" target="_blank"><img  src="../img/descargar archivo.png" alt="Descargar" width="30px" style="border-radius: 100%;"> </a></div></td>
+            <td> <div class="md-7 d-flex align-items-center justify-content-center ">${user.Autor}</div></td>  
+            <td > <div class="md-2 d-flex align-items-center justify-content-center "> <a href="${ruta}" target="_blank"><img  src="../img/descargar archivo.png" alt="Descargar" width="30px" style="border-radius: 100%;"> </a></div></td>
         </tr>`;
 
         });

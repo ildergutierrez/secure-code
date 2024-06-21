@@ -1,4 +1,3 @@
-<!-- verifica si inicio o no sesión-->
 <?php
 session_start();
 
@@ -10,9 +9,6 @@ if (!isset($_SESSION['Email'])) {
         </script>";
 }
 ?>
-<!-- Fin de si inicio o no sesión -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,6 +1,7 @@
 <?php
 include('conexion_bd.php');
 $no = "";
+$id_user = "";
 $nombre = $_POST['Email'];
 $error = $_POST['error'];
 $direccion = $_POST['direccion'];
@@ -14,10 +15,12 @@ if ($busqueda && mysqli_num_rows($busqueda) > 0) {
     $fila = mysqli_fetch_assoc($resultado);
     $contrasena_almacenada = $fila['contrasena'];
     $no = $fila['Nombre'];
+    $id_user = $fila['id'];
     if (password_verify($contrasena, $contrasena_almacenada)) {
         session_start();
         $_SESSION['Email'] = $nombre;
         $_SESSION['nombre'] = trim($no);
+        $_SESSION['id_user'] = trim($id_user);
         header("Location: $direccion");
     } else {
         echo "<script>

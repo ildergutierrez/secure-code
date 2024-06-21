@@ -7,6 +7,7 @@ if (isset($_SESSION['Email'])) {
         location.href = '$inicio';
         </script>";
 }
+include("php/conexion_bd.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,44 +21,60 @@ if (isset($_SESSION['Email'])) {
 </head>
 <style>
   body {
-    background: rgb(199, 249, 231);
+    /* background: #0B1131; */
+    background-image: url("img/fondo.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    
   }
 
   .publicidad {
-    position: absolute;
-    width: 150px;
-    height: 500px;
+    position: fixed;
+    width: 11%;
+    height: 150px;
     /* line-height: 55px; */
-    top: 150%;
+    top: 25%;
     /*bottom: 50%; Altura del boton*/
-    background: #d9ddf1;
-    left: 1%;
+    background: transparent;
+    border: none;
+    left: 0;
     color: #cfe2ff;
     border-radius: 5%;
     box-shadow: 0px 1px 10px rgb(0, 0, 0, 0.3);
 
+  }
+
+  .publicidad:hover {
+    width: 20%;
+    height: 40%;
   }
 
   .publicidad2 {
-    position: absolute;
-    width: 150px;
-    height: 500px;
+    position: fixed;
+    width: 11%;
+    height: 150px;
     line-height: 55px;
-    top: 250%;
+    top: 50%;
     /*bottom: 50%; Altura del boton*/
-    background: #d9ddf1;
-    right: 1%;
+    background: transparent;
+    border: none;
+    right: 0;
     color: #cfe2ff;
     border-radius: 5%;
     box-shadow: 0px 1px 10px rgb(0, 0, 0, 0.3);
   }
-
+  .publicidad2:hover {
+    width: 20%;
+    height: 40%;
+  }
   .Donacion {
     position: fixed;
     width: 55px;
     height: 55px;
     line-height: 55px;
-    bottom: 50%;
+    bottom: 55%;
     /*bottom: 50%; Altura del boton*/
     background: #d9ddf1;
     right: 1%;
@@ -95,16 +112,30 @@ if (isset($_SESSION['Email'])) {
             <input type="hidden" value="../paginas/inicio.php" name="direccion">
             <input type="hidden" value="../index.php" name="erro">
             <div class="modal-body" style="background: #e0d4ed">
-              <input type="email" name="Email" required class="form-control" id="recipient-name" placeholder="Correo" /><br />
-              <input type="password" id="password" required name="password" class="form-control" id="recipient-name" placeholder="Contrsaeña" />
+              <div class="form-floating mb-3">
+                <input type="email" name="Email" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
+                <label for="floatingInput">Correo</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="password" id="password" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
+                <label for="floatingInput">Contraseña</label>
+              </div>
+
               <span onclick="togglePasswordVisibility()" class="btn" style="float: right; padding: 0;"><i><img src="img/ver.png" width="50%" alt=""></i></span><br>
             </div>
-            <div class="modal-footer" style="background: #e0d4ed">
-              <button type="submit" class="btn btn-primary">
-                Iniciar sesión
-              </button>
-              <br />
-              <center><a href=""> Olvide mi contraseña</a></center>
+            <div class="modal-footer" style="background: #e0d4ed; width: 100%;">
+
+              <center>
+                <div class="col">
+                  <button type="submit" class="btn btn-primary">
+                    Iniciar sesión
+                  </button>
+                </div>
+                <div class="col" style="font-size: 12px;">
+                  <a href=""> Olvide mi contraseña</a>
+                </div>
+              </center>
             </div>
           </form>
         </div>
@@ -124,9 +155,10 @@ if (isset($_SESSION['Email'])) {
             </h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <form action="" method="post">
+          <form action="php/Registro.php" method="post">
             <div class="modal-body" style="background: #e0d4ed">
               <div class="form-floating mb-3">
+                <input type="hidden" value="../index.php" name="link">
                 <input type="text" name="Nombre" class="form-control" id="floatingInput" placeholder="Jose Miguel Gutierrez Cruz" required>
                 <label for="floatingInput">Nombre completo</label>
               </div>
@@ -135,13 +167,13 @@ if (isset($_SESSION['Email'])) {
                 <label for="floatingInput">Correo</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="password" id="password" name="Passwork" class="form-control" id="floatingInput" placeholder="*************" required>
+                <input type="password" id="password-in" name="Password" class="form-control" id="floatingInput" placeholder="*************" required>
                 <label for="floatingInput">Contraseña</label>
-                <span onclick="togglePasswordVisibility()" class="btn" style="float: right; padding: 0;"><i><img src="img/ver.png" width="50%" alt=""></i></span><br>
+                <span onclick="PasswordVisibility()" class="btn" style="float: right; padding: 0;"><i><img src="img/ver.png" width="50%" alt=""></i></span><br>
               </div>
 
               <div class="form-floating mb-3">
-                <input type="date" class="form-control" name="Dato" id="floatingInput" placeholder="secure@example.com" required>
+                <input type="date" class="form-control" name="Dato" id="floatingInput" placeholder="A-M-D" required>
                 <label for="floatingInput">Fecha de nacimiento</label>
               </div>
               <div class="form-check">
@@ -230,14 +262,7 @@ if (isset($_SESSION['Email'])) {
     <a href="https://www.paypal.com/donate/?hosted_button_id=G4MSNR6JU3PB2" target="_blank"><img class="Donacion" src="img/donacion paypal.png" alt="Donacion" title="Donación" width="60px" /></a>
     <!-- Fin del boton de donación -->
     <br /><br />
-    <!-- Publicidad -->
-    <div>
-      <a href="" target="_blank"> <img class="publicidad" src="img/hacker-2883632_1920.jpg" alt="Publicidad"></a>
-    </div>
-    <div>
-      <a href="" target="_blank"> <img class="publicidad2" src="giphy.gif" alt="Publicidad"></img></a>
-    </div>
-    <!-- fin publicidad -->
+
     <!-- Inicio de Carrusel -->
     <div class="container-fluid" style="
             width: 80%;
@@ -277,7 +302,57 @@ if (isset($_SESSION['Email'])) {
     </div>
     <!-- fin del carrusel -->
     <br />
-    <div class="container" style="width: 75%;">
+    <div class="container" style="width: 87%;">
+      <!-- Publicidad -->
+      <?php
+      $p1 = 0;
+      $p2 = 0;
+      $url1 = "";
+      $url2 = "";
+      $img1 = "";
+      $img2 = "";
+      $filas = 0;
+      $sql = "SELECT * FROM publicidad";
+      $resultado = mysqli_query($conexion, $sql);
+
+      if ($resultado) {
+        $filas = mysqli_num_rows($resultado);
+      }
+
+      if ($filas > 0) {
+        $urls = array();
+        while ($fila = mysqli_fetch_array($resultado)) {
+          $urls[] = $fila['id'];
+        }
+        $p1 = rand(0, $filas - 1);
+        $p2 = rand(0, $filas - 1);
+        for ($i = 0; $i < 2; $i++) {
+          if ($i === 0) {
+            $sql = "SELECT * FROM publicidad WHERE id = $urls[$p1]";
+            $resultado = mysqli_query($conexion, $sql);
+            $publicida = mysqli_fetch_array($resultado);
+            $url1 = $publicida['Url'];
+            $img1 = $publicida['imagen'];
+          } else {
+            $sql = "SELECT * FROM publicidad WHERE id = $urls[$p2]";
+            $resultado = mysqli_query($conexion, $sql);
+            $publicida = mysqli_fetch_array($resultado);
+            $url2 = $publicida['Url'];
+            $img2 = $publicida['imagen'];
+          }
+        }
+      }
+      mysqli_close($conexion);
+      $ruta = "https://raw.githubusercontent.com//ildergutierrez/imagenes/main/publicidad/";
+      ?>
+
+      <div class="container-md">
+        <a href="php/conteo.php?url=<?php echo base64_encode($url1) ?>&id=<?php echo base64_encode($urls[$p1]) ?>" target="_blank"> <img class="publicidad" src="<?php echo $ruta . $img1 ?>" alt="Publicidad"></a>
+      </div>
+      <div class="container-md">
+        <a href="php/conteo.php?url=<?php echo base64_encode($url2) ?> &id=<?php echo base64_encode($urls[$p2]) ?>" target="_blank"> <img class="publicidad2" src="<?php echo $ruta . $img2 ?>" alt="Publicidad"></img></a>
+      </div>
+      <!-- fin publicidad -->
       <div class="container" style="
               background: #ffffff;
               border-radius: 15px;
@@ -327,10 +402,10 @@ if (isset($_SESSION['Email'])) {
                 </h2>
               </center>
             </div>
-            <div class="col-md-3 d-flex align-items-center justify-content-center ">
+            <div class="col-md-2 d-flex align-items-center justify-content-center ">
               <center><img src="img/C.png" alt="C#" width="40%" /></center>
             </div>
-            <div class="col-md-6 d-flex align-items-center justify-content-center ">
+            <div class="col-md-7 d-flex align-items-center justify-content-center ">
 
               <iframe width="80%" height="250px" src="https://www.youtube.com/embed/8O7PopSscBE?si=WBcpqoN9r8F5y_Ap" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 20px; padding: 12px"></iframe>
 
@@ -345,12 +420,12 @@ if (isset($_SESSION['Email'])) {
                 </h2>
               </center>
             </div>
-            <div class="col-md-3 d-flex align-items-center justify-content-center ">
+            <div class="col-md-2 d-flex align-items-center justify-content-center ">
               <center>
                 <img src="img/python--2.png" alt="Python" width="100%" />
               </center>
             </div>
-            <div class="col-md-6 d-flex align-items-center justify-content-center ">
+            <div class="col-md-7 d-flex align-items-center justify-content-center ">
 
               <iframe width="80%" height="250px" src="https://www.youtube.com/embed/IcFvElQNo4A?si=e011vnF0hJm0eCkU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 20px; padding: 12px"></iframe>
 
@@ -365,12 +440,12 @@ if (isset($_SESSION['Email'])) {
                 </h2>
               </center>
             </div>
-            <div class="col-md-3 d-flex align-items-center justify-content-center  ">
+            <div class="col-md-2 d-flex align-items-center justify-content-center  ">
               <center>
                 <img src="img/java-2.png" alt="Java" width="100%" />
               </center>
             </div>
-            <div class="col-md-6 d-flex align-items-center justify-content-center ">
+            <div class="col-md-7 d-flex align-items-center justify-content-center ">
 
               <iframe width="80%" height="250px" src="https://www.youtube.com/embed/47poaxfou94?si=Esmn16OyBDI9Jk5l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 20px; padding: 12px"></iframe>
 
@@ -384,7 +459,7 @@ if (isset($_SESSION['Email'])) {
           Debes tener en cuenta que solo son guias para que usted como
           usuario se apoye y amplie su conocimiento o alimente su
           curiosidad.
-          <br />
+          <br /><b>Nota: </b><i>Ten presente que si no conoces de programación es mejor que tengas un buen antivirus o no copiles los codigos, solo leelos.</i><br><br>
         </p>
         <hr />
       </div>
@@ -413,18 +488,6 @@ if (isset($_SESSION['Email'])) {
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="Js/bootstrap.bundle.min.js"></script>
-<script>
-  function togglePasswordVisibility() {
-    var passwordInput = document.getElementById("password");
-
-    if (passwordInput.type === "password") {
-      passwordInput.type = "text";
-      confirmPasswordInput.type = "text";
-    } else {
-      passwordInput.type = "password";
-      confirmPasswordInput.type = "password";
-    }
-  }
-</script>s
+<script src="Js/password.js"></script>
 
 </html>
