@@ -1,6 +1,9 @@
 <?php
+if (!isset($_POST['Nombre']) || !isset($_POST['Correo']) || !isset($_POST['Password']) || !isset($_POST['Dato']) || !isset($_POST['link'])) {
+    header("Location: ../index.php");
+    exit();
+}
 include('conexion_bd.php');
-
 $nombre = $_POST['Nombre'];
 $correo = $_POST['Correo'];
 $correo = strtolower($correo);

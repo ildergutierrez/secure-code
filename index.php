@@ -3,7 +3,6 @@ session_start();
 if (isset($_SESSION['Email'])) {
   $inicio = "paginas/inicio.php";
   echo "<script>
-        alert('Para acceder debes iniciar sesión');
         location.href = '$inicio';
         </script>";
 }
@@ -27,7 +26,7 @@ include("php/conexion_bd.php");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
-    
+
   }
 
   .publicidad {
@@ -65,10 +64,12 @@ include("php/conexion_bd.php");
     border-radius: 5%;
     box-shadow: 0px 1px 10px rgb(0, 0, 0, 0.3);
   }
+
   .publicidad2:hover {
     width: 20%;
     height: 40%;
   }
+
   .Donacion {
     position: fixed;
     width: 55px;
@@ -261,47 +262,7 @@ include("php/conexion_bd.php");
     <!-- Donación -->
     <a href="https://www.paypal.com/donate/?hosted_button_id=G4MSNR6JU3PB2" target="_blank"><img class="Donacion" src="img/donacion paypal.png" alt="Donacion" title="Donación" width="60px" /></a>
     <!-- Fin del boton de donación -->
-    <br /><br />
 
-    <!-- Inicio de Carrusel -->
-    <div class="container-fluid" style="
-            width: 80%;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px 0 rgba(46, 46, 46, 0.66);
-          ">
-      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-        </div>
-        <div class="carousel-inner" style="border-radius: 15px;">
-          <div class="carousel-item active">
-            <img src="img/3.png" class="d-block w-100" alt="..." />
-          </div>
-          <div class="carousel-item">
-            <img src="img/1.png" class="d-block w-100" alt="..." />
-          </div>
-          <div class="carousel-item">
-            <img src="img/2.png" class="d-block w-100" alt="..." />
-          </div>
-          <div class="carousel-item">
-            <img src="img/4.png" class="d-block w-100" alt="..." />
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-    <!-- fin del carrusel -->
-    <br />
     <div class="container" style="width: 87%;">
       <!-- Publicidad -->
       <?php
@@ -352,12 +313,54 @@ include("php/conexion_bd.php");
       <div class="container-md">
         <a href="php/conteo.php?url=<?php echo base64_encode($url2) ?> &id=<?php echo base64_encode($urls[$p2]) ?>" target="_blank"> <img class="publicidad2" src="<?php echo $ruta . $img2 ?>" alt="Publicidad"></img></a>
       </div>
-      <!-- fin publicidad -->
+    </div>
+    <!-- fin publicidad -->
+
+    <!-- Inicio de Carrusel -->
+    <div class="container-fluid" style=" width: 70%;
+        border-radius: 15px;
+        box-shadow: 0 8px 32px 0 rgba(46, 46, 46, 0.66);
+      ">
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner" style="border-radius: 15px;">
+          <div class="carousel-item active">
+            <img src="img/3.png" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="img/1.png" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="img/2.png" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="img/4.png" class="d-block w-100" alt="..." />
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <!-- fin del carrusel -->
+    <br />
+    <div class="container-md">
       <div class="container" style="
               background: #ffffff;
               border-radius: 15px;
               padding: 35px;
               text-align: justify;
+              width: 75%;
             ">
         <p style="padding: 20px">
           <strong>Descargas seguras</strong> es un lugar para los curisosos
@@ -375,7 +378,7 @@ include("php/conexion_bd.php");
           actualmentes son:
         </p>
         <br /><br />
-        <div class="container" style="border-radius: 15px; overflow: hidden;">
+        <div class="container-md" style="border-radius: 15px; overflow: hidden;">
           <div class="row" style="background: #919797">
             <div class="col-2">
               <strong>
@@ -465,6 +468,7 @@ include("php/conexion_bd.php");
       </div>
     </div>
     <br />
+    </div>
   </main>
   <footer>
     <div class="container" style="background: #000000; color: #ffffff; border-radius: 50px">
@@ -484,7 +488,6 @@ include("php/conexion_bd.php");
       </p>
     </div>
   </footer>
-  </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="Js/bootstrap.bundle.min.js"></script>

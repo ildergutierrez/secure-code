@@ -5,6 +5,7 @@ $id = base64_decode($_GET['id']);
 
 if ($url == null || $id == null) {
     header("Location: ../index.php");
+    exit();
 }
 include 'conexion_bd.php';
 $consulta = "SELECT * FROM publicidad";
@@ -21,7 +22,7 @@ if ($resultado->num_rows > 0) {
         header("Location: $url");
     } else {
         echo '<script>';
-        echo 'setTimeout(function() { window.close(); }, 200);';
+        echo ' window.close(); ';
         echo '</script>';
     }
     $conexion->close();

@@ -11,9 +11,16 @@ $conteo = 0;
 $url =  base64_decode($_GET['ruta']);
 $id = base64_decode($_GET['rt']);
 $tipo = base64_decode($_GET['tipo']);
-echo "<script>
-alert('$url + $id + $tipo');
-</script>";
+if ($tipo == "csharp") {
+    $carpeta = '../codigo/c/';
+}
+if ($tipo == "java") {
+    $carpeta = '../codigo/java/';
+}
+if ($tipo == "python") {
+    $carpeta = '../codigo/py/';
+}
+$acceso = $carpeta . $url;
 
 if ($url == null || $id == null || $tipo == null) {
     header("Location: ../index.php");
@@ -31,10 +38,10 @@ if ($url == null || $id == null || $tipo == null) {
         }
         $sql = "UPDATE $tipo SET clic = '$conteo' WHERE id = '$id'";
         if ($conexion->query($sql) === TRUE) {
-            header("Location: $url");
+            header("Location: $acceso");
         } else {
             echo '<script>';
-            echo 'setTimeout(function() { window.close(); }, 200);';
+            echo ' window.close();';
             echo '</scrip>';
         }
         $conexion->close();

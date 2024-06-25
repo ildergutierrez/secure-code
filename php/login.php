@@ -1,4 +1,8 @@
 <?php
+if (!isset($_POST['Email']) || !isset($_POST['password']) || !isset($_POST['direccion']) || !isset($_POST['error'])) {
+    header("Location: ../index.php");
+    exit();
+}
 include('conexion_bd.php');
 $no = "";
 $id_user = "";

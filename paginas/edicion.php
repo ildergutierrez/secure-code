@@ -1,16 +1,37 @@
-<?php
+<?php $cont = 0;
+$valor = 0;
+$usuario = "";
 session_start();
-if (!isset($_SESSION['Email'])) {
-    $inicio = "../index.php";
-    echo "<script>
-        alert('Para subir un codigo debes iniciar sesión');
-        location.href = '$inicio';
-        </script>";
-} else {
+if (isset($_SESSION['Email'])) {
     $usuario =  $_SESSION['nombre'];
-    $id = $_SESSION['id_user'];
+} else {
+    echo '<script>
+    window.close();
+    </script>';
+}
+$id = base64_decode($_GET['rt']);
+$tipo = base64_decode($_GET['tabla']);
+if ($id == null || $tipo == null) {
+    echo '<script>
+    alert("Error al intentar obtener el archivo");
+    window.close();
+    </script>';
 }
 include("../php/conexion_bd.php");
+$consulta = "SELECT * FROM $tipo";
+$resultado = $conexion->query($consulta);
+if ($resultado->num_rows > 0) {
+    while ($d_a = mysqli_fetch_assoc($resultado)) {
+        if ($d_a['id'] === $id) {
+            $nombre_p = $d_a['Nombre'];
+            $descibir = $d_a['Descripcion'];
+            $Autor = $d_a['Autor'];
+            $Fecha =  $d_a['fecha'];
+            $clic = $d_a['clic'];
+            break;
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,8 +40,9 @@ include("../php/conexion_bd.php");
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cargar Codigo</title>
+    <title>Editar Archivo</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <!-- <link rel="" href=""/> -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
     <link rel="icon" href="../img/Descargas-Seguras.png" />
 </head>
@@ -104,6 +126,7 @@ include("../php/conexion_bd.php");
 
 <body>
     <div class="container-fluid" style="padding: 0">
+
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: #e1e3f7; position: fixed; z-index: 100;
             width: 100%;    padding: 0; ">
@@ -123,7 +146,7 @@ include("../php/conexion_bd.php");
                                 </a>
                                 <ul style="color: #000000; font-size: 20px" class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <a class="dropdown-item" href="python.php">Python</a>
+                                        <a class="dropdown-item" href="#">Python</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="Csharp.php">c#</a>
@@ -146,7 +169,6 @@ include("../php/conexion_bd.php");
                                 <a style="color: #000000; font-size: 20px" class="nav-link" href="contactos.php">Contactos</a>
                             </li>
                         </ul>
-
                         <form class="d-flex">
                             <label class="lead" style="text-align: right;  background: transparent; border: none;"><?php echo $usuario ?></label> &nbsp; &nbsp;
                             <a class="btn btn-outline-secondary" href="subir_codigo.php">Subir Codigo </a> &ensp;&ensp;
@@ -163,10 +185,10 @@ include("../php/conexion_bd.php");
             <!-- Fin del boton de donación -->
             <br />
             <br />
-            <div class="container-md" style="width: 87%;">
+            <div class="container" style="width: 87%;">
                 <!-- Publicidad -->
                 <?php
-
+                include('../php/conexion_bd.php');
                 $p1 = 0;
                 $p2 = 0;
                 $url1 = "";
@@ -184,116 +206,112 @@ include("../php/conexion_bd.php");
                 if ($filas > 0) {
                     $urls = array();
                     while ($fila = mysqli_fetch_array($resultado)) {
-                        $urls[] = $fila['id'];
+                        if ($fila['Pagos'] > 0) {
+                            $urls[] = $fila['id'];
+                        }
                     }
-                    $p1 = rand(0, $filas - 1);
-                    $p2 = rand(0, $filas - 1);
-                    for ($i = 0; $i < 2; $i++) {
-                        if ($i === 0) {
-                            $sql = "SELECT * FROM publicidad WHERE id = $urls[$p1]";
-                            $resultado = mysqli_query($conexion, $sql);
-                            $publicida = mysqli_fetch_array($resultado);
-                            $url1 = $publicida['Url'];
-                            $img1 = $publicida['imagen'];
-                        } else {
-                            $sql = "SELECT * FROM publicidad WHERE id = $urls[$p2]";
-                            $resultado = mysqli_query($conexion, $sql);
-                            $publicida = mysqli_fetch_array($resultado);
-                            $url2 = $publicida['Url'];
-                            $img2 = $publicida['imagen'];
+                    if (count($urls) > 0) {
+                        $p1 = rand(0, $filas - 1);
+                        $p2 = rand(0, $filas - 1);
+                    } else {
+                        $p1 = 0;
+                        $p2 = 0;
+                    }
+                    if (count($urls) > 0) {
+                        for ($i = 0; $i < 2; $i++) {
+                            if ($i === 0) {
+                                $sql = "SELECT * FROM publicidad WHERE id = $urls[$p1]";
+                                $resultado = mysqli_query($conexion, $sql);
+                                $publicida = mysqli_fetch_array($resultado);
+                                $url1 = $publicida['Url'];
+                                $img1 = $publicida['imagen'];
+                            } else {
+                                $sql = "SELECT * FROM publicidad WHERE id = $urls[$p2]";
+                                $resultado = mysqli_query($conexion, $sql);
+                                $publicida = mysqli_fetch_array($resultado);
+                                $url2 = $publicida['Url'];
+                                $img2 = $publicida['imagen'];
+                            }
                         }
                     }
                 }
                 mysqli_close($conexion);
                 $ruta = "https://raw.githubusercontent.com//ildergutierrez/imagenes/main/publicidad/";
+                if (count($urls) > 0) {
                 ?>
 
-                <div class="container-md">
-                    <a href="php/conteo.php?url=<?php echo base64_encode($url1) ?>&id=<?php echo base64_encode($urls[$p1]) ?>" target="_blank"> <img class="publicidad" src="<?php echo $ruta . $img1 ?>" alt="Publicidad"></a>
-                </div>
-                <div class="container-md">
-                    <a href="php/conteo.php?url=<?php echo base64_encode($url2) ?> &id=<?php echo base64_encode($urls[$p2]) ?>" target="_blank"> <img class="publicidad2" src="<?php echo $ruta . $img2 ?>" alt="Publicidad"></img></a>
-                </div>
+                    <div class="container-md">
+
+                        <a href="php/conteo.php?url=<?php echo base64_encode($url1) ?>&id=<?php echo base64_encode($urls[$p1]) ?>" target="_blank"> <img class="publicidad" src="<?php echo $ruta . $img1 ?>" alt="Publicidad"></a>
+                    </div>
+                    <div class="container-md">
+                        <a href="php/conteo.php?url=<?php echo base64_encode($url2) ?> &id=<?php echo base64_encode($urls[$p2]) ?>" target="_blank"> <img class="publicidad2" src="<?php echo $ruta . $img2 ?>" alt="Publicidad"></img></a>
+                    </div>
+                <?php } ?>
+            </div>
+            <div class="container-md" style="background:#fff; width: 77%;">
+                <br><br> <br><br>
+                <form action="../php/editar.php" method="POST">
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <h1> <input type="text" style="background: #D8F7F2; border-radius: 15px;" value=" <?php echo $nombre_p ?>" name="nombre" width="100%"></h1>
+                        </div>
+                        <div class="col-md-4"></div>
+
+                    </div> <br><br>
+                    <div class="row" style="width: 90%; border-radius: 15px; background: #D8F7F2; margin: auto;">
+                        <div class="col-md-9">
+                            <div class="container-md" style="width: 90%; padding: 40px;">
+                                <b>
+                                    <h3>
+                                        <center>Descripción</center>
+                                    </h3>
+                                </b>
+                                <br>
+                                <div id="contador" style="float: inline-end;">Caracteres restantes: 600</div>
+                                <input type="hidden" value=" <?php echo $tipo ?>" name="tipo">
+                                <input type="hidden" value=" <?php echo $id ?>" name="id">
+                                <textarea name="descripcion" id="commentText" maxlength="600" oninput="contarCaracteres()" style="border-radius: 15px ; width: 100%; height: 200px; border: 1px solid #ccc; padding: 5px; font-size: 14px; resize: none;"> <?php echo $descibir ?></textarea>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="col-md-3" style="border-left:solid 1px #000000;">
+                            <br><b>Publicado por: </b><?php echo $Autor ?>
+                            <br><br>
+                            <b>Fecha de publicación: </b><?php echo $Fecha ?>
+                            <br><br>
+                            <b>N° Descargas: </b><?php echo $clic ?>
+                        </div>
+                        <br />
+                        <center> <button class="btn btn-primary">Guardar</button></center>
+                        <br>
+                        <br>
+                    </div>
+                </form>
+                <br><br>
             </div>
             <br>
-            <div class="container-md" style="width: 77%; background: #fff;">
-                <br>
-                <div>
+        </main>
+        <footer>
+            <div class="container" style="background: #000000; color: #ffffff; border-radius: 50px">
+                <p>
+                    <br />
                     <center>
-                        <h3> Subir codigo</h3>
+                        <img src="../img/ubicacion.png" alt="ubicacion" width="20px" /> -
+                        Colombia &ensp;
+                        <img width="20px" src="../img/Descargas-Seguras.png" alt="logo" />
+                        - Desacargas Seguras <br /><br />
+                        <center>copyright: © Ilder Alberto Gutierrez Beleño</center>
+                        **Toda donación que se realize esta destinada al pago de los
+                        servidores y mantenimiento de la pagina, asi podemos asegurar que
+                        esta pagina siga en funcionamiento.**
                     </center>
-                </div> <br>
-                <div class="container-md" style="background:#fff; width: 77%;">
-                    <form action="../php/guardar.php" method="post" enctype="multipart/form-data">
-                        <div class="row">
-
-                            <div class="col-md-2">
-                                <h1> Titulo</h1>
-                            </div>
-                            <div class="col-md-6 d-flex">
-                                <input type="text" maxlength="80" placeholder="maximo 80 caracteres" name="titulo" style="width: 100%; border-radius: 15px;">
-                            </div>
-                            <div class="col-md">
-                                <input type="hidden" value="<?php echo $id ?>" name="id_user">
-                                <input type="hidden" value="<?php echo $usuario ?>" name="Autor">
-                            </div>
-                        </div>
-                </div> <br><br>
-                <div class="row" style="width: 100%; border-radius: 15px; background: #D8F7F2; margin: auto;">
-                    <div class="col-md-9">
-                        <div class="container-md" style="width: 100%; padding: 20px;">
-                            <b>
-                                <h3>
-                                    <center>Descripción</center>
-                                </h3>
-                            </b>
-                            <br>
-                            <div id="contador" style="float: inline-end;">Caracteres restantes: 600</div>
-                            <textarea name="descripcion" placeholder="Maximo 600 caracteres" id="commentText" maxlength="600" oninput="contarCaracteres()" style="border-radius: 15px ; width: 100%; height: 200px; border: 1px solid #ccc; padding: 5px; font-size: 14px; resize: none;"></textarea>
-                            <br>
-                            <div class="container-md">
-                                <label for="archivo">Selecciona un archivo ZIP o RAR:</label><br>
-                                <input type="file" id="archivo" name="archivo" accept=".zip, .rar"><br>
-                            </div><br>
-                        </div>
-                    </div>
-                    <div class="col-md-3" style="border-left:solid 1px #000000;">
-                        <br><b>Lenguaje:
-                            <br><br>
-                            <select name="lenguaje" id="lenguaje" style="width: 80%; height: 30px; border-radius: 5px;">
-                                <option value="">selecionar</option>
-                                <option value="Python">Python</option>
-                                <option value="Java">Java</option>
-                                <option value="Csharp">C#</option>
-                            </select>
-
-                            <br><br>
-                            <button class="btn btn-info">Guardar</button>
-                    </div><br />
-                </div>
-                <br><br>
-                </form>
+                    <br />
+                </p>
             </div>
-    </div>
-    </main> <br>
-    <footer>
-        <div class="container" style="background: #000000; color: #ffffff; border-radius: 50px">
-            <p>
-                <br />
-                <center>
-                    <img src="../img/ubicacion.png" alt="ubicacion" width="20px" /> -
-                    Colombia &ensp;
-                    <img width="20px" src="../img/Descargas-Seguras.png" alt="logo" /> -
-                    Desacargas Seguras <br /><br />
-                    <center>copyright: © Ilder Alberto Gutierrez Beleño</center>
-                    **Toda donación que se realize esta destinada al pago de los
-                    servidores y mantenimiento de la pagina, asi podemos asegurar que
-                    esta pagina siga en funcionamiento.**
-                </center>
-            </p> <br>
-        </div>
-
-    </footer>
+        </footer>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../Js/bootstrap.bundle.min.js"></script>

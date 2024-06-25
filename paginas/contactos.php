@@ -328,29 +328,29 @@ include "../php/conexion_bd.php";
                 </div>
             <?php } ?>
             <br>
-
-            <div class="container" style="background: #ffffff; border-radius: 50px; width: 75%;">
-                <br> <br><br><br><br>
-                <center>
-                    <h1>Contactos</h1>
-                </center>
-                <br>
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <center>
-                                <h3><img src="../img/telegrama.png" alt="Telegram"> Ingresa a Nuestro <a href="https://t.me/ejercicios_programacion" target="_blank"> canal en Telegram</a></h3>
-                                <p>
-                        </div>
-                        <div class="col">
-                            <center>
-                                <h3><img src="../img/whatsapp.png" alt="Telegram"> Ingresa a Nuestro <a href="https://whatsapp.com/channel/0029VahzgAzIyPtQMJmapq1q " target="_blank"> canal en Whatsapp</a></h3>
-                                <p>
-                        </div> <br>
+        </div>
+        <div class="container" style="background: #ffffff; border-radius: 50px; width: 75%;">
+            <br> <br><br><br><br>
+            <center>
+                <h1>Contactos</h1>
+            </center>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <center>
+                            <h3><img src="../img/telegrama.png" alt="Telegram"> Ingresa a Nuestro <a href="https://t.me/ejercicios_programacion" target="_blank"> canal en Telegram</a></h3>
+                            <p>
                     </div>
+                    <div class="col">
+                        <center>
+                            <h3><img src="../img/whatsapp.png" alt="Telegram"> Ingresa a Nuestro <a href="https://whatsapp.com/channel/0029VahzgAzIyPtQMJmapq1q " target="_blank"> canal en Whatsapp</a></h3>
+                            <p>
+                    </div> <br>
                 </div>
-                <br><br><br><br>
             </div>
+            <br><br><br><br>
+        </div>
 
     </main>
     <footer>
