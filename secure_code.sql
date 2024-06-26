@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2024 a las 21:13:25
+-- Tiempo de generación: 27-06-2024 a las 01:39:09
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -135,24 +135,10 @@ CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `Nombre` varchar(60) DEFAULT NULL,
   `Correo` varchar(80) DEFAULT NULL,
-  `contrasena` varchar(300) DEFAULT NULL,
+  `contrasena` varchar(3000) DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
   `Ingreso` date NOT NULL,
   `verificacion` int(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `verificacion`
---
-
-CREATE TABLE `verificacion` (
-  `id` int(11) NOT NULL,
-  `Correo` varchar(45) DEFAULT NULL,
-  `Codigo` varchar(45) DEFAULT NULL,
-  `Inicio` time DEFAULT NULL,
-  `Fin` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
@@ -196,12 +182,6 @@ ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `verificacion`
---
-ALTER TABLE `verificacion`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -239,12 +219,6 @@ ALTER TABLE `python`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `verificacion`
---
-ALTER TABLE `verificacion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
