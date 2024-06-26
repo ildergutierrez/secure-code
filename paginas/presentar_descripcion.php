@@ -163,7 +163,7 @@ if ($resultado->num_rows > 0) {
                                     </button>
                                 </div>
                                 <div class="col" style="font-size: 12px;">
-                                    <a href=""> Olvide mi contraseña</a>
+                                    <a href="olvide_contrasena.php"> Olvide mi contraseña</a>
                                 </div>
                             </center>
                         </div>

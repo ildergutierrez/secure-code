@@ -110,9 +110,9 @@ include "../php/conexion_bd.php";
                         </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="php/login.php" method="post">
+                    <form action="../php/login.php" method="post">
                         <input type="hidden" value="../paginas/inicio.php" name="direccion">
-                        <input type="hidden" value="../index.php" name="erro">
+                        <input type="hidden" value="../index.php" name="error">
                         <div class="modal-body" style="background: #e0d4ed">
                             <div class="form-floating mb-3">
                                 <input type="email" name="Email" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
@@ -120,7 +120,7 @@ include "../php/conexion_bd.php";
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input type="password" id="password" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
+                                <input type="password" id="password" name="password" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
                                 <label for="floatingInput">Contraseña</label>
                             </div>
 

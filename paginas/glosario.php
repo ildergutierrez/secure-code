@@ -113,9 +113,9 @@ include("../php/conexion_bd.php");
                         </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="php/login.php" method="post">
-                        <input type="hidden" value="../php/paginas/python.php" name="direccion">
-                        <input type="hidden" value="../index.php" name="erro">
+                    <form action="../php/login.php" method="post">
+                        <input type="hidden" value="../paginas/glosario.php" name="direccion">
+                        <input type="hidden" value="../index.php" name="error">
                         <div class="modal-body" style="background: #e0d4ed">
                             <div class="form-floating mb-3">
                                 <input type="email" name="Email" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
@@ -123,7 +123,7 @@ include("../php/conexion_bd.php");
                             </div>
 
                             <div class="form-floating mb-3">
-                                <input type="password" id="password" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
+                                <input type="password" id="password" name="password" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
                                 <label for="floatingInput">Contraseña</label>
                             </div>
 
@@ -138,7 +138,7 @@ include("../php/conexion_bd.php");
                                     </button>
                                 </div>
                                 <div class="col" style="font-size: 12px;">
-                                <a href="olvide_contrasena.php"> Olvide mi contraseña</a>
+                                    <a href="olvide_contrasena.php"> Olvide mi contraseña</a>
                                 </div>
                             </center>
                         </div>
@@ -332,149 +332,149 @@ include("../php/conexion_bd.php");
             <?php } ?>
         </div>
         <div class="container-md" style="width: 75%; background: #fff;">
-            
-                <div class="container-md" style="padding: 30px; width: 80%;"> <br>
-                    <center> <img src="../img/monitor-1307227_1920.jpg" alt="Glosario"  style="border-radius: 15px; width: 100%;"></center>
-                </div>
-                <div class="container" style="width: 80%;  border-radius: 15px; padding: 40px; ">
-                  <strong>Algoritmo:</strong> Un conjunto de pasos definidos y
-                    ordenados para realizar una tarea específica. <br /><br /><strong>API (Interfaz de Programación de
-                        Aplicaciones):</strong>
-                    Un conjunto de reglas y protocolos que permite que diferentes
-                    aplicaciones se comuniquen entre sí. <br /><br /><strong>Backend:</strong>
-                    La parte de un sistema de software que maneja la lógica y el
-                    procesamiento de datos. <br /><br /><strong>Base de datos:</strong> Un
-                    sistema para almacenar y organizar datos de manera estructurada.
-                    <br /><br /><strong>Branch/Rama:</strong> Una copia paralela de un
-                    repositorio que permite el desarrollo independiente de una función o
-                    característica. <br /><br /><strong>Bucle for:</strong> Una estructura
-                    de control que repite un bloque de código un número específico de
-                    veces. <br /><br /><strong>Bucle while:</strong> Una estructura de
-                    control que repite un bloque de código mientras se cumple una
-                    condición especificada. <br /><br /><strong>Cadena/String:</strong>
-                    Una secuencia de caracteres. <br /><br /><strong>Clase:</strong> Un
-                    modelo para crear objetos que define atributos y métodos comunes a
-                    todos los objetos de ese tipo. <br /><br /><strong>CMS (Sistema de Gestión de Contenidos):</strong>
-                    Software que facilita la creación y administración de contenido web.
-                    <br /><br /><strong>Commit:</strong> Un registro de cambios en un
-                    repositorio de Git. <br /><br /><strong>Compilador:</strong> Un
-                    programa que traduce código fuente de alto nivel a código máquina.
-                    <br /><br /><strong>Condición/Declaración if:</strong> Una estructura
-                    de control que ejecuta un bloque de código si se cumple una condición
-                    especificada. <br /><br /><strong>Data Scientist (Científica de Datos):</strong>
-                    Se enfoca en analizar grandes conjuntos de datos para obtener
-                    información y conocimientos significativos que ayuden en la toma de
-                    decisiones. <br /><br /><strong>Depuración/Debugging:</strong> El
-                    proceso de identificar y corregir errores en un programa.
-                    <br /><br /><strong>DOM (Modelo de Objeto del Documento):</strong> Una
-                    representación en forma de árbol de la estructura de un documento HTML
-                    que permite interactuar con los elementos de la página web.
-                    <br /><br /><strong>Encapsulamiento:</strong> El ocultamiento de los
-                    detalles de implementación de un objeto y la exposición solo de la
-                    interfaz. <br /><br /><strong>Framework:</strong> Una estructura
-                    conceptual y tecnológica sobre la cual puedes construir aplicaciones.
-                    <br /><br /><strong>Frontend:</strong> La parte de un sistema de
-                    software que interactúa con los usuarios y muestra la interfaz de
-                    usuario. <br /><br /><strong>Full-stack Developer (Desarrolladora Full-stack):</strong>
-                    Tiene habilidades tanto en el desarrollo de front-end como en el
-                    desarrollo de back-end, lo que le permite trabajar en todas las capas
-                    de una aplicación web. <br /><br /><strong>Función:</strong> Un bloque
-                    de código que realiza una tarea específica y puede ser llamado desde
-                    otras partes del programa. <br /><br /><strong>Game Developer (Desarrolladora de Juegos):</strong>
-                    Se especializa en la creación de videojuegos, desde el diseño de la
-                    jugabilidad hasta la implementación de la lógica del juego y los
-                    gráficos. <br /><br /><strong>Git:</strong> Un sistema de control de
-                    versiones distribuido ampliamente utilizado para el desarrollo de
-                    software. <br /><br /><strong>Hash:</strong> Una función que convierte
-                    una entrada de datos en una cadena de caracteres de longitud fija.
-                    <br /><br /><strong>Herencia:</strong> Un mecanismo mediante el cual
-                    una clase puede heredar atributos y métodos de otra clase.
-                    <br /><br /><strong>HTTPS (Protocolo de Transferencia de Hipertexto Seguro):</strong>
-                    Una versión segura del protocolo HTTP que utiliza cifrado SSL/TLS.
-                    <br /><br /><strong>IDE (Entorno de Desarrollo Integrado):</strong> Un
-                    conjunto de herramientas que facilitan la escritura, depuración y
-                    ejecución de código. <br /><br /><strong>Interpretador:</strong> Un
-                    programa que ejecuta instrucciones escritas en un lenguaje de
-                    programación sin la necesidad de compilarlas primero.
-                    <br /><br /><strong>JavaScript:</strong> Un lenguaje de programación
-                    utilizado principalmente en el desarrollo web para agregar
-                    interactividad y dinamismo a las páginas. <br /><br /><strong>jQuery:</strong>
-                    Una biblioteca de JavaScript que simplifica la manipulación del DOM,
-                    el manejo de eventos, las animaciones y las llamadas AJAX.
-                    <br /><br /><strong>Lenguaje de programación:</strong> Un conjunto de
-                    reglas y símbolos utilizados para escribir programas de computadora.
-                    <br /><br /><strong>Librería:</strong> Un conjunto de funciones y
-                    rutinas que pueden ser utilizadas por programas de computadora.
-                    <br /><br /><strong>Método:</strong> Una función asociada a un objeto
-                    que define su comportamiento. <br /><br /><strong>Middleware:</strong>
-                    Software que actúa como intermediario entre diferentes aplicaciones o
-                    sistemas. <br /><br /><strong>Mobile App Developer (Desarrolladora de Aplicaciones
-                        Móviles):</strong>
-                    Se enfoca en la creación de aplicaciones móviles para dispositivos
-                    como teléfonos inteligentes y tabletas. <br /><br /><strong>NoSQL:</strong>
-                    Un enfoque alternativo al almacenamiento y recuperación de datos que
-                    no utiliza tablas relacionales. <br /><br /><strong>Objeto:</strong>
-                    Una instancia de una clase que encapsula datos y comportamientos
-                    relacionados. <br /><br /><strong>Parámetro/Argumento:</strong> Un
-                    valor que se pasa a una función para su procesamiento.
-                    <br /><br /><strong>Polimorfismo:</strong> La capacidad de objetos de
-                    diferentes clases para ser tratados de manera uniforme.
-                    <br /><br /><strong>Pila de llamadas/Call Stack:</strong> Una pila que
-                    mantiene el registro de las llamadas a funciones en ejecución.
-                    <br /><br /><strong>Pila/Stack:</strong> Una estructura de datos que
-                    sigue el principio de LIFO (Last In, First Out) para el almacenamiento
-                    de datos. <br /><br /><strong> Pseudocódigo: </strong> Es una forma de
-                    escribir algoritmos utilizando un lenguaje informal que combina
-                    elementos del lenguaje humano con convenciones de programación.
-                    <br /><br /><strong>Pull Request/Solicitud de extracción:</strong> Una
-                    solicitud para fusionar cambios de una rama a otra en un repositorio
-                    de Git. <br /><br /><strong>Puntero:</strong> Una variable que
-                    almacena la dirección de memoria de otra variable. <br /><br /><strong>QA Engineer (Ingeniera de
-                        Aseguramiento de la Calidad):</strong>
-                    Se encarga de probar y verificar la calidad de software para
-                    garantizar que funcione correctamente antes de ser lanzados al mercado.
-                    <br /><br /><strong>UI/UX Designer:</strong> Se especializa en diseñar la interfaz de usuario y la
-                    experiencia del usuario para garantizar que los usuarios interactúen de manera efectiva y satisfactoria
-                    con un producto o servicio digital.
-                    <br /><br /><strong>Web Hosting:</strong> El servicio que permite a individuos y organizaciones publicar
-                    un sitio web o una aplicación en Internet. <br><br>
-                    <br>
 
-                    <h2> <strong> <em> tipos comunes de programadores</em></strong></h2>
-                    
-                    <br /><br />
-                    <strong>Backend Developer:</strong> Un programador que se especializa en el desarrollo de la parte del
-                    servidor y la lógica de negocio de una aplicación web o móvil.
-
-                    <br /><br />
-                    <strong>Data Scientist:</strong> Un programador que se enfoca en analizar y extraer conocimiento
-                    significativo de grandes conjuntos de datos.
-
-                    <br /><br />
-                    <strong>Frontend Developer:</strong> Un programador que se especializa en el desarrollo de la interfaz
-                    de usuario y la experiencia del usuario en aplicaciones web o móviles.
-
-                    <br /><br />
-                    <strong>Full-stack Developer:</strong> Un programador que tiene habilidades tanto en el desarrollo del
-                    lado del cliente (frontend) como del servidor (backend) y puede trabajar en todos los aspectos de una
-                    aplicación.
-
-                    <br /><br />
-                    <strong>Game Developer:</strong> Un programador que se enfoca en el desarrollo de videojuegos, desde la
-                    programación del motor del juego hasta la implementación de la lógica del juego y la optimización del
-                    rendimiento.<br /><br />
-                    <strong>Mobile Developer:</strong> Un programador que se especializa en el desarrollo de aplicaciones
-                    móviles para plataformas como iOS y Android.
-                    <br /><br /><strong>Software Engineer:</strong> Un profesional que diseña, desarrolla y mantiene
-                    software de manera
-                    sistemática y eficiente, centrándose en la calidad, la escalabilidad y el rendimiento del software.
-                    <br /><br /><strong>Web Developer:</strong> Un programador que se enfoca en el desarrollo de sitios web
-                    y
-                    aplicaciones web utilizando tecnologías como HTML, CSS y JavaScript.
-                    <br><br><br>
-                </div>
-                </dxiv>
+            <div class="container-md" style="padding: 30px; width: 80%;"> <br>
+                <center> <img src="../img/monitor-1307227_1920.jpg" alt="Glosario" style="border-radius: 15px; width: 100%;"></center>
+            </div>
+            <div class="container" style="width: 80%;  border-radius: 15px; padding: 40px; ">
+                <strong>Algoritmo:</strong> Un conjunto de pasos definidos y
+                ordenados para realizar una tarea específica. <br /><br /><strong>API (Interfaz de Programación de
+                    Aplicaciones):</strong>
+                Un conjunto de reglas y protocolos que permite que diferentes
+                aplicaciones se comuniquen entre sí. <br /><br /><strong>Backend:</strong>
+                La parte de un sistema de software que maneja la lógica y el
+                procesamiento de datos. <br /><br /><strong>Base de datos:</strong> Un
+                sistema para almacenar y organizar datos de manera estructurada.
+                <br /><br /><strong>Branch/Rama:</strong> Una copia paralela de un
+                repositorio que permite el desarrollo independiente de una función o
+                característica. <br /><br /><strong>Bucle for:</strong> Una estructura
+                de control que repite un bloque de código un número específico de
+                veces. <br /><br /><strong>Bucle while:</strong> Una estructura de
+                control que repite un bloque de código mientras se cumple una
+                condición especificada. <br /><br /><strong>Cadena/String:</strong>
+                Una secuencia de caracteres. <br /><br /><strong>Clase:</strong> Un
+                modelo para crear objetos que define atributos y métodos comunes a
+                todos los objetos de ese tipo. <br /><br /><strong>CMS (Sistema de Gestión de Contenidos):</strong>
+                Software que facilita la creación y administración de contenido web.
+                <br /><br /><strong>Commit:</strong> Un registro de cambios en un
+                repositorio de Git. <br /><br /><strong>Compilador:</strong> Un
+                programa que traduce código fuente de alto nivel a código máquina.
+                <br /><br /><strong>Condición/Declaración if:</strong> Una estructura
+                de control que ejecuta un bloque de código si se cumple una condición
+                especificada. <br /><br /><strong>Data Scientist (Científica de Datos):</strong>
+                Se enfoca en analizar grandes conjuntos de datos para obtener
+                información y conocimientos significativos que ayuden en la toma de
+                decisiones. <br /><br /><strong>Depuración/Debugging:</strong> El
+                proceso de identificar y corregir errores en un programa.
+                <br /><br /><strong>DOM (Modelo de Objeto del Documento):</strong> Una
+                representación en forma de árbol de la estructura de un documento HTML
+                que permite interactuar con los elementos de la página web.
+                <br /><br /><strong>Encapsulamiento:</strong> El ocultamiento de los
+                detalles de implementación de un objeto y la exposición solo de la
+                interfaz. <br /><br /><strong>Framework:</strong> Una estructura
+                conceptual y tecnológica sobre la cual puedes construir aplicaciones.
+                <br /><br /><strong>Frontend:</strong> La parte de un sistema de
+                software que interactúa con los usuarios y muestra la interfaz de
+                usuario. <br /><br /><strong>Full-stack Developer (Desarrolladora Full-stack):</strong>
+                Tiene habilidades tanto en el desarrollo de front-end como en el
+                desarrollo de back-end, lo que le permite trabajar en todas las capas
+                de una aplicación web. <br /><br /><strong>Función:</strong> Un bloque
+                de código que realiza una tarea específica y puede ser llamado desde
+                otras partes del programa. <br /><br /><strong>Game Developer (Desarrolladora de Juegos):</strong>
+                Se especializa en la creación de videojuegos, desde el diseño de la
+                jugabilidad hasta la implementación de la lógica del juego y los
+                gráficos. <br /><br /><strong>Git:</strong> Un sistema de control de
+                versiones distribuido ampliamente utilizado para el desarrollo de
+                software. <br /><br /><strong>Hash:</strong> Una función que convierte
+                una entrada de datos en una cadena de caracteres de longitud fija.
+                <br /><br /><strong>Herencia:</strong> Un mecanismo mediante el cual
+                una clase puede heredar atributos y métodos de otra clase.
+                <br /><br /><strong>HTTPS (Protocolo de Transferencia de Hipertexto Seguro):</strong>
+                Una versión segura del protocolo HTTP que utiliza cifrado SSL/TLS.
+                <br /><br /><strong>IDE (Entorno de Desarrollo Integrado):</strong> Un
+                conjunto de herramientas que facilitan la escritura, depuración y
+                ejecución de código. <br /><br /><strong>Interpretador:</strong> Un
+                programa que ejecuta instrucciones escritas en un lenguaje de
+                programación sin la necesidad de compilarlas primero.
+                <br /><br /><strong>JavaScript:</strong> Un lenguaje de programación
+                utilizado principalmente en el desarrollo web para agregar
+                interactividad y dinamismo a las páginas. <br /><br /><strong>jQuery:</strong>
+                Una biblioteca de JavaScript que simplifica la manipulación del DOM,
+                el manejo de eventos, las animaciones y las llamadas AJAX.
+                <br /><br /><strong>Lenguaje de programación:</strong> Un conjunto de
+                reglas y símbolos utilizados para escribir programas de computadora.
+                <br /><br /><strong>Librería:</strong> Un conjunto de funciones y
+                rutinas que pueden ser utilizadas por programas de computadora.
+                <br /><br /><strong>Método:</strong> Una función asociada a un objeto
+                que define su comportamiento. <br /><br /><strong>Middleware:</strong>
+                Software que actúa como intermediario entre diferentes aplicaciones o
+                sistemas. <br /><br /><strong>Mobile App Developer (Desarrolladora de Aplicaciones
+                    Móviles):</strong>
+                Se enfoca en la creación de aplicaciones móviles para dispositivos
+                como teléfonos inteligentes y tabletas. <br /><br /><strong>NoSQL:</strong>
+                Un enfoque alternativo al almacenamiento y recuperación de datos que
+                no utiliza tablas relacionales. <br /><br /><strong>Objeto:</strong>
+                Una instancia de una clase que encapsula datos y comportamientos
+                relacionados. <br /><br /><strong>Parámetro/Argumento:</strong> Un
+                valor que se pasa a una función para su procesamiento.
+                <br /><br /><strong>Polimorfismo:</strong> La capacidad de objetos de
+                diferentes clases para ser tratados de manera uniforme.
+                <br /><br /><strong>Pila de llamadas/Call Stack:</strong> Una pila que
+                mantiene el registro de las llamadas a funciones en ejecución.
+                <br /><br /><strong>Pila/Stack:</strong> Una estructura de datos que
+                sigue el principio de LIFO (Last In, First Out) para el almacenamiento
+                de datos. <br /><br /><strong> Pseudocódigo: </strong> Es una forma de
+                escribir algoritmos utilizando un lenguaje informal que combina
+                elementos del lenguaje humano con convenciones de programación.
+                <br /><br /><strong>Pull Request/Solicitud de extracción:</strong> Una
+                solicitud para fusionar cambios de una rama a otra en un repositorio
+                de Git. <br /><br /><strong>Puntero:</strong> Una variable que
+                almacena la dirección de memoria de otra variable. <br /><br /><strong>QA Engineer (Ingeniera de
+                    Aseguramiento de la Calidad):</strong>
+                Se encarga de probar y verificar la calidad de software para
+                garantizar que funcione correctamente antes de ser lanzados al mercado.
+                <br /><br /><strong>UI/UX Designer:</strong> Se especializa en diseñar la interfaz de usuario y la
+                experiencia del usuario para garantizar que los usuarios interactúen de manera efectiva y satisfactoria
+                con un producto o servicio digital.
+                <br /><br /><strong>Web Hosting:</strong> El servicio que permite a individuos y organizaciones publicar
+                un sitio web o una aplicación en Internet. <br><br>
                 <br>
+
+                <h2> <strong> <em> tipos comunes de programadores</em></strong></h2>
+
+                <br /><br />
+                <strong>Backend Developer:</strong> Un programador que se especializa en el desarrollo de la parte del
+                servidor y la lógica de negocio de una aplicación web o móvil.
+
+                <br /><br />
+                <strong>Data Scientist:</strong> Un programador que se enfoca en analizar y extraer conocimiento
+                significativo de grandes conjuntos de datos.
+
+                <br /><br />
+                <strong>Frontend Developer:</strong> Un programador que se especializa en el desarrollo de la interfaz
+                de usuario y la experiencia del usuario en aplicaciones web o móviles.
+
+                <br /><br />
+                <strong>Full-stack Developer:</strong> Un programador que tiene habilidades tanto en el desarrollo del
+                lado del cliente (frontend) como del servidor (backend) y puede trabajar en todos los aspectos de una
+                aplicación.
+
+                <br /><br />
+                <strong>Game Developer:</strong> Un programador que se enfoca en el desarrollo de videojuegos, desde la
+                programación del motor del juego hasta la implementación de la lógica del juego y la optimización del
+                rendimiento.<br /><br />
+                <strong>Mobile Developer:</strong> Un programador que se especializa en el desarrollo de aplicaciones
+                móviles para plataformas como iOS y Android.
+                <br /><br /><strong>Software Engineer:</strong> Un profesional que diseña, desarrolla y mantiene
+                software de manera
+                sistemática y eficiente, centrándose en la calidad, la escalabilidad y el rendimiento del software.
+                <br /><br /><strong>Web Developer:</strong> Un programador que se enfoca en el desarrollo de sitios web
+                y
+                aplicaciones web utilizando tecnologías como HTML, CSS y JavaScript.
+                <br><br><br>
+            </div>
+            </dxiv>
+            <br>
     </main>
     <footer>
         <div class="container" style="background: #000000; color:#ffffff; border-radius: 50px;">

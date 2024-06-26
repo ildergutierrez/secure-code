@@ -111,7 +111,7 @@ include("php/conexion_bd.php");
           </div>
           <form action="php/login.php" method="post">
             <input type="hidden" value="../paginas/inicio.php" name="direccion">
-            <input type="hidden" value="../index.php" name="erro">
+            <input type="hidden" value="../index.php" name="error">
             <div class="modal-body" style="background: #e0d4ed">
               <div class="form-floating mb-3">
                 <input type="email" name="Email" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
@@ -119,11 +119,11 @@ include("php/conexion_bd.php");
               </div>
 
               <div class="form-floating mb-3">
-                <input type="password" id="password" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
+                <input type="password" name="password" id="password" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
                 <label for="floatingInput">Contraseña</label>
               </div>
 
-              <span onclick="togglePasswordVisibility()" class="btn" style="float: right; padding: 0;"><i><img src="img/ver.png" width="50%" alt=""></i></span><br>
+              <span onclick="PasswordVisibility()" class="btn" style="float: right; padding: 0;"><i><img src="img/ver.png" width="50%" alt=""></i></span><br>
             </div>
             <div class="modal-footer" style="background: #e0d4ed; width: 100%;">
 
@@ -134,7 +134,7 @@ include("php/conexion_bd.php");
                   </button>
                 </div>
                 <div class="col" style="font-size: 12px;">
-                  <a href=""> Olvide mi contraseña</a>
+                  <a href="paginas/olvide_contrasena.php"> Olvide mi contraseña</a>
                 </div>
               </center>
             </div>
@@ -170,7 +170,7 @@ include("php/conexion_bd.php");
               <div class="form-floating mb-3">
                 <input type="password" id="password-in" name="Password" class="form-control" id="floatingInput" placeholder="*************" required>
                 <label for="floatingInput">Contraseña</label>
-                <span onclick="PasswordVisibility()" class="btn" style="float: right; padding: 0;"><i><img src="img/ver.png" width="50%" alt=""></i></span><br>
+                <span onclick="togglePasswordVisibility()" class="btn" style="float: right; padding: 0;"><i><img src="img/ver.png" width="50%" alt=""></i></span><br>
               </div>
 
               <div class="form-floating mb-3">
@@ -491,6 +491,6 @@ include("php/conexion_bd.php");
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="Js/bootstrap.bundle.min.js"></script>
-<script src="Js/password.js"></script>
+<script src="Control/password.js"></script>
 
 </html>

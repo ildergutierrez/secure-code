@@ -102,50 +102,50 @@ include("../php/conexion_bd.php");
   <div class="container-fluid" style="padding: 0">
     <!-- MODAL Inicio -->
     <div class="modal" tabindex="-1" id="modal-iniciar-sesion">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header" style="background: #6309c3">
-            <h5 class="modal-title" style="color: #ffffff">
-              <center>
-                <img src="../img/icono.ico" alt="Logo" style="border-radius: 100%; width: 30%" />
-                &ensp; Iniciar Sesión
-              </center>
-            </h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <form action="php/login.php" method="post">
-            <input type="hidden" value="../php/paginas/python.php" name="direccion">
-            <input type="hidden" value="../index.php" name="erro">
-            <div class="modal-body" style="background: #e0d4ed">
-              <div class="form-floating mb-3">
-                <input type="email" name="Email" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
-                <label for="floatingInput">Correo</label>
-              </div>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background: #6309c3">
+                        <h5 class="modal-title" style="color: #ffffff">
+                            <center>
+                                <img src="../img/icono.ico" alt="Logo" style="border-radius: 100%; width: 30%" />
+                                &ensp; Iniciar Sesión
+                            </center>
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="../php/login.php" method="post">
+                        <input type="hidden" value="../paginas/python.php" name="direccion">
+                        <input type="hidden" value="../index.php" name="error">
+                        <div class="modal-body" style="background: #e0d4ed">
+                            <div class="form-floating mb-3">
+                                <input type="email" name="Email" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
+                                <label for="floatingInput">Correo</label>
+                            </div>
 
-              <div class="form-floating mb-3">
-                <input type="password" id="password" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
-                <label for="floatingInput">Contraseña</label>
-              </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" id="password" name="password" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
+                                <label for="floatingInput">Contraseña</label>
+                            </div>
 
-              <span onclick="PasswordVisibility()" class="btn" style="float: right; padding: 0;"><i><img src="../img/ver.png" width="50%" alt=""></i></span><br>
-            </div>
-            <div class="modal-footer" style="background: #e0d4ed; width: 100%;">
+                            <span onclick="PasswordVisibility()" class="btn" style="float: right; padding: 0;"><i><img src="../img/ver.png" width="50%" alt=""></i></span><br>
+                        </div>
+                        <div class="modal-footer" style="background: #e0d4ed; width: 100%;">
 
-              <center>
-                <div class="col">
-                  <button type="submit" class="btn btn-primary">
-                    Iniciar sesión
-                  </button>
+                            <center>
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary">
+                                        Iniciar sesión
+                                    </button>
+                                </div>
+                                <div class="col" style="font-size: 12px;">
+                                    <a href="olvide_contrasena.php"> Olvide mi contraseña</a>
+                                </div>
+                            </center>
+                        </div>
+                    </form>
                 </div>
-                <div class="col" style="font-size: 12px;">
-                <a href="olvide_contrasena.php"> Olvide mi contraseña</a>
-                </div>
-              </center>
             </div>
-          </form>
         </div>
-      </div>
-    </div>
     <!-- FIN -->
     <!-- MODAL Registro -->
     <div class="modal" tabindex="-1" id="modal-Registro">
