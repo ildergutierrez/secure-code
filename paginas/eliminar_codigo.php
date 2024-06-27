@@ -312,8 +312,8 @@ include("../php/conexion_bd.php");
                                                     <b>Descargas: </b><?php echo $f_c['clic'] ?>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <a href="edicion.php?rt=<?php echo base64_encode($f_p['id']) ?>&tabla=<?php echo base64_encode('csharp') ?>" class="btn btn-danger" title="Modificar" style="width: 40%;"><img src="https://cdn.pixabay.com/photo/2013/07/12/18/38/edit-153612_1280.png" alt="Modificar" title="Modificar" width="30%"></a>
-                                                    <a href="../php/eliminar.php?tabla=<?php echo base64_encode('csharp') ?>&id=<?php echo base64_encode($f_p['id']) ?>" class="btn btn-primary" title="Eliminar" style="width: 40%;"><img src="https://cdn.pixabay.com/photo/2013/07/12/12/40/abort-146072_1280.png" alt="Eliminar" title="Eliminar" width="30%"></a>
+                                                    <a href="edicion.php?rt=<?php echo base64_encode($f_c['id']) ?>&tabla=<?php echo base64_encode('csharp') ?>" class="btn btn-danger" title="Modificar" style="width: 40%;"><img src="https://cdn.pixabay.com/photo/2013/07/12/18/38/edit-153612_1280.png" alt="Modificar" title="Modificar" width="30%"></a>
+                                                    <a href="../php/eliminar.php?tabla=<?php echo base64_encode('csharp') ?>&id=<?php echo base64_encode($f_c['id']) ?>" class="btn btn-primary" title="Eliminar" style="width: 40%;"><img src="https://cdn.pixabay.com/photo/2013/07/12/12/40/abort-146072_1280.png" alt="Eliminar" title="Eliminar" width="30%"></a>
                                                 </div>
                                             </div> <br>
 
@@ -353,16 +353,16 @@ include("../php/conexion_bd.php");
                                         if ($f_j['id_Autor'] === $id) { ?>
                                             <div class="row">
                                                 <div class="col-md-5">
-                                                    <a href="Accion.php?rt=<?php echo base64_encode($f_p['id']) ?>&tipo=<?php echo base64_encode('java') ?>" target="_blank"> <b> <?php echo htmlspecialchars($f_p['Nombre'], ENT_QUOTES, 'UTF-8'); ?>
+                                                    <a href="Accion.php?rt=<?php echo base64_encode($f_j['id']) ?>&tipo=<?php echo base64_encode('java') ?>" target="_blank"> <b> <?php echo htmlspecialchars($f_j['Nombre'], ENT_QUOTES, 'UTF-8'); ?>
                                                         </b></a>
                                                     <br>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <b>Descargas: </b><?php echo $f_p['clic'] ?>
+                                                    <b>Descargas: </b><?php echo $f_j['clic'] ?>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <a href="edicion.php?rt=<?php echo base64_encode($f_p['id']) ?>&tabla=<?php echo base64_encode('java') ?>" class="btn btn-danger" title="Modificar" style="width: 40%;"><img src="https://cdn.pixabay.com/photo/2013/07/12/18/38/edit-153612_1280.png" alt="Modificar" title="Modificar" width="30%"></a>
-                                                    <a href="../php/eliminar.php?tabla=<?php echo base64_encode('java') ?>&id=<?php echo base64_encode($f_p['id']) ?>" class="btn btn-primary" title="Eliminar" style="width: 40%;"><img src="https://cdn.pixabay.com/photo/2013/07/12/12/40/abort-146072_1280.png" alt="Eliminar" title="Eliminar" width="30%"></a>
+                                                    <a href="edicion.php?rt=<?php echo base64_encode($f_j['id']) ?>&tabla=<?php echo base64_encode('java') ?>" class="btn btn-danger" title="Modificar" style="width: 40%;"><img src="https://cdn.pixabay.com/photo/2013/07/12/18/38/edit-153612_1280.png" alt="Modificar" title="Modificar" width="30%"></a>
+                                                    <a href="../php/eliminar.php?tabla=<?php echo base64_encode('java') ?>&id=<?php echo base64_encode($f_j['id']) ?>" class="btn btn-primary" title="Eliminar" style="width: 40%;"><img src="https://cdn.pixabay.com/photo/2013/07/12/12/40/abort-146072_1280.png" alt="Eliminar" title="Eliminar" width="30%"></a>
                                                 </div>
                                             </div> <br>
                                 <?php  }

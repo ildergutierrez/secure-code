@@ -224,7 +224,7 @@ include("../php/conexion_bd.php");
                     </center>
                 </div> <br>
                 <div class="container-md" style="background:#fff; width: 77%;">
-                    <form action="../php/guardar.php" method="post" enctype="multipart/form-data">
+                    <form action="../php/guardar.php" method="POST" enctype="multipart/form-data">
                         <div class="row">
 
                             <div class="col-md-2">

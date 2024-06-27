@@ -1,11 +1,4 @@
 <?php
-if ($id == null || $autor == null || $titulo == null || $descripcion == null || $lenguaje == null) {
-    echo '<script>
-    alert("ups. ocurrio un error, intentelo de nuevo \n verifique que todos los campos esten llenos.");
-    location.href = "../paginas/subir_codigo.php";
-    </script>';
-    exit();
-}
 session_start();
 include('Conexion_bd.php');
 $id = $_POST['id_user'];
@@ -16,6 +9,14 @@ $descripcion = $_POST['descripcion'];
 $lenguaje = $_POST['lenguaje'];
 $acceso = "";
 $date = date("Y-m-d-");
+if ($id == null || $autor == null || $titulo == null || $descripcion == null || $lenguaje == null) {
+    echo '<script>
+    alert("ups. ocurrio un error, intentelo de nuevo, verifique que todos los campos esten llenos.");
+    </script>';
+    echo $id . '---' . $autor . '---' . $titulo . '---' . $descripcion . '---' . $lenguaje;
+    exit();
+}
+
 
 
 if ($lenguaje == "Csharp") {
