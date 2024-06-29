@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['Email'])) {
   $usuario = $_SESSION['nombre'];
 }
-include("../php/conexion_bd.php");
+include("../php/publicidad.php");
 ?>
 
 <!DOCTYPE html>
@@ -102,50 +102,50 @@ include("../php/conexion_bd.php");
   <div class="container-fluid" style="padding: 0">
     <!-- MODAL Inicio -->
     <div class="modal" tabindex="-1" id="modal-iniciar-sesion">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header" style="background: #6309c3">
-                        <h5 class="modal-title" style="color: #ffffff">
-                            <center>
-                                <img src="../img/icono.ico" alt="Logo" style="border-radius: 100%; width: 30%" />
-                                &ensp; Iniciar Sesión
-                            </center>
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form action="../php/login.php" method="post">
-                        <input type="hidden" value="../paginas/python.php" name="direccion">
-                        <input type="hidden" value="../index.php" name="error">
-                        <div class="modal-body" style="background: #e0d4ed">
-                            <div class="form-floating mb-3">
-                                <input type="email" name="Email" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
-                                <label for="floatingInput">Correo</label>
-                            </div>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" style="background: #6309c3">
+            <h5 class="modal-title" style="color: #ffffff">
+              <center>
+                <img src="../img/icono.ico" alt="Logo" style="border-radius: 100%; width: 30%" />
+                &ensp; Iniciar Sesión
+              </center>
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form action="../php/login.php" method="post">
+            <input type="hidden" value="../paginas/python.php" name="direccion">
+            <input type="hidden" value="../index.php" name="error">
+            <div class="modal-body" style="background: #e0d4ed">
+              <div class="form-floating mb-3">
+                <input type="email" name="Email" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
+                <label for="floatingInput">Correo</label>
+              </div>
 
-                            <div class="form-floating mb-3">
-                                <input type="password" id="password" name="password" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
-                                <label for="floatingInput">Contraseña</label>
-                            </div>
+              <div class="form-floating mb-3">
+                <input type="password" id="password" name="password" class="form-control" id="floatingInput" placeholder="secure@example.com" required>
+                <label for="floatingInput">Contraseña</label>
+              </div>
 
-                            <span onclick="PasswordVisibility()" class="btn" style="float: right; padding: 0;"><i><img src="../img/ver.png" width="50%" alt=""></i></span><br>
-                        </div>
-                        <div class="modal-footer" style="background: #e0d4ed; width: 100%;">
-
-                            <center>
-                                <div class="col">
-                                    <button type="submit" class="btn btn-primary">
-                                        Iniciar sesión
-                                    </button>
-                                </div>
-                                <div class="col" style="font-size: 12px;">
-                                    <a href="olvide_contrasena.php"> Olvide mi contraseña</a>
-                                </div>
-                            </center>
-                        </div>
-                    </form>
-                </div>
+              <span onclick="PasswordVisibility()" class="btn" style="float: right; padding: 0;"><i><img src="../img/ver.png" width="50%" alt=""></i></span><br>
             </div>
+            <div class="modal-footer" style="background: #e0d4ed; width: 100%;">
+
+              <center>
+                <div class="col">
+                  <button type="submit" class="btn btn-primary">
+                    Iniciar sesión
+                  </button>
+                </div>
+                <div class="col" style="font-size: 12px;">
+                  <a href="olvide_contrasena.php"> Olvide mi contraseña</a>
+                </div>
+              </center>
+            </div>
+          </form>
         </div>
+      </div>
+    </div>
     <!-- FIN -->
     <!-- MODAL Registro -->
     <div class="modal" tabindex="-1" id="modal-Registro">
@@ -271,65 +271,14 @@ include("../php/conexion_bd.php");
     <br />
     <div class="container-md">
       <!-- Publicidad -->
-      <?php
 
-      $p1 = 0;
-      $p2 = 0;
-      $url1 = "";
-      $url2 = "";
-      $img1 = "";
-      $img2 = "";
-      $filas = 0;
-      $sql = "SELECT * FROM publicidad";
-      $resultado = mysqli_query($conexion, $sql);
+      <div class="container-md">
+        <?php p1(); ?>
+      </div>
+      <div class="container-md">
+        <?php p2(); ?>
+      </div>
 
-      if ($resultado) {
-        $filas = mysqli_num_rows($resultado);
-      }
-
-      if ($filas > 0) {
-        $urls = array();
-        while ($fila = mysqli_fetch_array($resultado)) {
-          if ($fila['Pagos'] > 0) {
-            $urls[] = $fila['id'];
-          }
-        }
-        if (count($urls) > 0) {
-          $p1 = rand(0, $filas - 1);
-          $p2 = rand(0, $filas - 1);
-        } else {
-          $p1 = 0;
-          $p2 = 0;
-        }
-        if (count($urls) > 0) {
-          for ($i = 0; $i < 2; $i++) {
-            if ($i === 0) {
-              $sql = "SELECT * FROM publicidad WHERE id = $urls[$p1]";
-              $resultado = mysqli_query($conexion, $sql);
-              $publicida = mysqli_fetch_array($resultado);
-              $url1 = $publicida['Url'];
-              $img1 = $publicida['imagen'];
-            } else {
-              $sql = "SELECT * FROM publicidad WHERE id = $urls[$p2]";
-              $resultado = mysqli_query($conexion, $sql);
-              $publicida = mysqli_fetch_array($resultado);
-              $url2 = $publicida['Url'];
-              $img2 = $publicida['imagen'];
-            }
-          }
-        }
-      }
-      mysqli_close($conexion);
-      $ruta = "https://raw.githubusercontent.com//ildergutierrez/imagenes/main/publicidad/";
-      if (count($urls) > 0) {
-      ?>
-        <div class="container-md">
-          <a href="php/conteo.php?url=<?php echo base64_encode($url1) ?>&id=<?php echo base64_encode($urls[$p1]) ?>" target="_blank"> <img class="publicidad" src="<?php echo $ruta . $img1 ?>" alt="Publicidad"></a>
-        </div>
-        <div class="container-md">
-          <a href="php/conteo.php?url=<?php echo base64_encode($url2) ?> &id=<?php echo base64_encode($urls[$p2]) ?>" target="_blank"> <img class="publicidad2" src="<?php echo $ruta . $img2 ?>" alt="Publicidad"></img></a>
-        </div>
-      <?php } ?>
     </div>
     <div class="container-md" style="width: 80%;">
       <div class="container" style="background: #fff; border-radius: 15px">

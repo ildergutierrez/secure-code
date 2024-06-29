@@ -10,7 +10,7 @@ if (!isset($_SESSION['Email'])) {
     $usuario =  $_SESSION['nombre'];
     $id = $_SESSION['id_user'];
 }
-include("../php/conexion_bd.php");
+include("../php/publicidad.php");
 ?>
 
 <!DOCTYPE html>
@@ -165,54 +165,11 @@ include("../php/conexion_bd.php");
             <br />
             <div class="container-md" style="width: 87%;">
                 <!-- Publicidad -->
-                <?php
-
-                $p1 = 0;
-                $p2 = 0;
-                $url1 = "";
-                $url2 = "";
-                $img1 = "";
-                $img2 = "";
-                $filas = 0;
-                $sql = "SELECT * FROM publicidad";
-                $resultado = mysqli_query($conexion, $sql);
-
-                if ($resultado) {
-                    $filas = mysqli_num_rows($resultado);
-                }
-
-                if ($filas > 0) {
-                    $urls = array();
-                    while ($fila = mysqli_fetch_array($resultado)) {
-                        $urls[] = $fila['id'];
-                    }
-                    $p1 = rand(0, $filas - 1);
-                    $p2 = rand(0, $filas - 1);
-                    for ($i = 0; $i < 2; $i++) {
-                        if ($i === 0) {
-                            $sql = "SELECT * FROM publicidad WHERE id = $urls[$p1]";
-                            $resultado = mysqli_query($conexion, $sql);
-                            $publicida = mysqli_fetch_array($resultado);
-                            $url1 = $publicida['Url'];
-                            $img1 = $publicida['imagen'];
-                        } else {
-                            $sql = "SELECT * FROM publicidad WHERE id = $urls[$p2]";
-                            $resultado = mysqli_query($conexion, $sql);
-                            $publicida = mysqli_fetch_array($resultado);
-                            $url2 = $publicida['Url'];
-                            $img2 = $publicida['imagen'];
-                        }
-                    }
-                }
-                mysqli_close($conexion);
-                $ruta = "https://raw.githubusercontent.com//ildergutierrez/imagenes/main/publicidad/";
-                ?>
-
                 <div class="container-md">
-                    <a href="php/conteo.php?url=<?php echo base64_encode($url1) ?>&id=<?php echo base64_encode($urls[$p1]) ?>" target="_blank"> <img class="publicidad" src="<?php echo $ruta . $img1 ?>" alt="Publicidad"></a>
+                    <?php p2(); ?>
                 </div>
                 <div class="container-md">
-                    <a href="php/conteo.php?url=<?php echo base64_encode($url2) ?> &id=<?php echo base64_encode($urls[$p2]) ?>" target="_blank"> <img class="publicidad2" src="<?php echo $ruta . $img2 ?>" alt="Publicidad"></img></a>
+                    <?php p1(); ?>
                 </div>
             </div>
             <br>

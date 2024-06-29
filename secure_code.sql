@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-06-2024 a las 05:35:31
+-- Tiempo de generación: 29-06-2024 a las 04:29:29
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -96,16 +96,21 @@ CREATE TABLE `publicidad` (
   `clic` int(11) NOT NULL,
   `Fecha` date NOT NULL,
   `Fecha_L` date NOT NULL,
-  `Pagos` int(1) NOT NULL
+  `Pagos` int(1) NOT NULL,
+  `Forma_de_Pago` int(2) NOT NULL,
+  `dias` int(4) NOT NULL,
+  `Mensualidad` int(10) NOT NULL,
+  `ultimopago` date NOT NULL,
+  `empleado` int(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `publicidad`
 --
 
-INSERT INTO `publicidad` (`id`, `Empresa`, `Url`, `imagen`, `clic`, `Fecha`, `Fecha_L`, `Pagos`) VALUES
-(1, 'Chers Aguachica', 'https://www.instagram.com/chers_aguachica/', 'chers_aguachica_instagran.gif', 1, '2024-06-18', '2024-07-18', 1),
-(2, 'Chers Aguachica', 'https://www.facebook.com/chersaguachica', 'chers_aguachica.gif', 1, '2024-06-18', '2024-07-18', 1);
+INSERT INTO `publicidad` (`id`, `Empresa`, `Url`, `imagen`, `clic`, `Fecha`, `Fecha_L`, `Pagos`, `Forma_de_Pago`, `dias`, `Mensualidad`, `ultimopago`, `empleado`) VALUES
+(1, 'Chers Aguachica', 'https://www.instagram.com/chers_aguachica/', 'chers_aguachica_instagran.gif', 2, '2024-06-18', '2024-07-18', 1, 0, 0, 0, '0000-00-00', 0),
+(2, 'Chers Aguachica', 'https://www.facebook.com/chersaguachica', 'chers_aguachica.gif', 2, '2024-06-18', '2024-07-18', 1, 0, 0, 0, '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -140,13 +145,6 @@ CREATE TABLE `usuarios` (
   `Ingreso` date NOT NULL,
   `verificacion` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`id`, `Nombre`, `Correo`, `contrasena`, `Fecha`, `Ingreso`, `verificacion`) VALUES
-(1, 'Ilder Albero Gutierrez Beleño', 'ilder1296@gmail.com', '$2y$10$veJ.NjwrKF/un.Vo1Gryp.4sLC8rs3ntKIKs6eDkTFQVDKbq9nAnK', '1996-04-12', '2024-06-27', 1);
 
 --
 -- Índices para tablas volcadas
@@ -226,7 +224,7 @@ ALTER TABLE `python`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

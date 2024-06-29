@@ -10,8 +10,7 @@ if (!isset($_SESSION['Email'])) {
 $usuario =  $_SESSION['nombre'];
 $id = $_SESSION['id_user'];
 
-include("../php/conexion_bd.php");
-
+include("../php/publicidad.php");
 
 ?>
 
@@ -36,6 +35,12 @@ include("../php/conexion_bd.php");
         background-position: center;
 
     }
+
+    .scoll {
+        max-height: 700px;
+        overflow-y: auto;
+    }
+
     .publicidad {
         position: fixed;
         width: 11%;
@@ -154,6 +159,7 @@ include("../php/conexion_bd.php");
             </div>
         </nav>
     </header>
+
     <br><br>
     <!-- Donación -->
     <a href="https://www.paypal.com/donate/?hosted_button_id=G4MSNR6JU3PB2" target="_blank"><img class="Donacion" src="../img/donacion paypal.png" alt="Donacion" title="Donación" width="60px" /></a>
@@ -161,100 +167,69 @@ include("../php/conexion_bd.php");
 
     <div class="container-md">
         <!-- Publicidad -->
-        <?php
-        $p1 = 0;
-        $p2 = 0;
-        $url1 = "";
-        $url2 = "";
-        $img1 = "";
-        $img2 = "";
-        $filas = 0;
-        $sql = "SELECT * FROM publicidad";
-        $resultado = mysqli_query($conexion, $sql);
 
-        if ($resultado) {
-            $filas = mysqli_num_rows($resultado);
-        }
+        <div class="container-md">
+            <?php p1(); ?>
+        </div>
+        <div class="container-md">
+            <?php p2(); ?>
+        </div>
 
-        if ($filas > 0) {
-            $urls = array();
-            while ($fila = mysqli_fetch_array($resultado)) {
-                if ($fila['Pagos'] > 0) {
-                    $urls[] = $fila['id'];
-                }
-            }
-            if (count($urls) > 0) {
-                $p1 = rand(0, $filas - 1);
-                $p2 = rand(0, $filas - 1);
-            } else {
-                $p1 = 0;
-                $p2 = 0;
-            }
-            if (count($urls) > 0) {
-                for ($i = 0; $i < 2; $i++) {
-                    if ($i === 0) {
-                        $sql = "SELECT * FROM publicidad WHERE id = $urls[$p1]";
-                        $resultado = mysqli_query($conexion, $sql);
-                        $publicida = mysqli_fetch_array($resultado);
-                        $url1 = $publicida['Url'];
-                        $img1 = $publicida['imagen'];
-                    } else {
-                        $sql = "SELECT * FROM publicidad WHERE id = $urls[$p2]";
-                        $resultado = mysqli_query($conexion, $sql);
-                        $publicida = mysqli_fetch_array($resultado);
-                        $url2 = $publicida['Url'];
-                        $img2 = $publicida['imagen'];
-                    }
-                }
-            }
-        }
-
-        $ruta = "https://raw.githubusercontent.com//ildergutierrez/imagenes/main/publicidad/";
-        if (count($urls) > 0) {
-        ?>
-            <div class="container-md">
-                <a href="php/conteo.php?url=<?php echo base64_encode($url1) ?>&id=<?php echo base64_encode($urls[$p1]) ?>" target="_blank"> <img class="publicidad" src="<?php echo $ruta . $img1 ?>" alt="Publicidad"></a>
-            </div>
-            <div class="container-md">
-                <a href="php/conteo.php?url=<?php echo base64_encode($url2) ?> &id=<?php echo base64_encode($urls[$p2]) ?>" target="_blank"> <img class="publicidad2" src="<?php echo $ruta . $img2 ?>" alt="Publicidad"></img></a>
-            </div>
-        <?php } ?>
     </div>
-    <div class="container" style="width: 77%; padding: 0; background: #cfe2ff;">
-        <div class="container" style=" background: lightgray; border-radius: 15px">
+    <main>
+        <div class="container" style="width: 77%; padding: 0; background: #cfe2ff;">
+            <div class="container scoll" style=" background: lightgray; border-radius: 15px">
 
-            <div class="container-lg" style=" width: 100%;  padding: 40px; background: #ffffff ; text-align: justify;">
-                <center>
-                    <h3>Noticias tecnologicas</h3>
-                </center> <br>
-                <?php
-                $ns = 0;
-                $noticia = "SELECT * FROM `noticias` ORDER BY `id` DESC";
-                $tabla_noticia = mysqli_query($conexion, $noticia);
-                if ($tabla_noticia && mysqli_num_rows($tabla_noticia) > 0) {
-                    while ($T_N = mysqli_fetch_assoc($tabla_noticia)) {
-                ?>
-                        <div class="row">
-                            <div class="col-md-4 d-flex align-items-center justify-content-center">
-                                <img src="<?php echo $T_N['img'] ?>" alt="Noticia" width="100%" />
+                <div class="container-lg " style=" width: 100%;  padding: 40px; background: #ffffff ; text-align: justify;">
+                    <center>
+                        <h3>Noticias tecnologicas</h3>
+                    </center> <br>
+                    <?php
+                    include("../php/conexion_bd.php");
+                    $ns = 0;
+                    $noticia = "SELECT * FROM `noticias` ORDER BY `id` DESC";
+                    $tabla_noticia = mysqli_query($conexion, $noticia);
+                    if ($tabla_noticia && mysqli_num_rows($tabla_noticia) > 0) {
+                        while ($T_N = mysqli_fetch_assoc($tabla_noticia)) {
+                    ?>
+                            <div class="row">
+                                <div class="col-md-4 d-flex align-items-center justify-content-center">
+                                    <img src="<?php echo $T_N['img'] ?>" alt="Noticia" width="100%" />
+                                </div>
+                                <div class="col-md-8">
+                                    <p> <strong> <?php echo htmlspecialchars($T_N['titulo'], ENT_QUOTES, 'UTF-8'); ?></strong> <br> <?php echo htmlspecialchars($T_N['cuerpo'], ENT_QUOTES, 'UTF-8'); ?> <br>
+                                        <a href="<?php echo $T_N['ruta'] ?>" target="_blank"> <b> Leer mas...
+                                            </b></a>
+                                    </p>
+                                </div>
                             </div>
-                            <div class="col-md-8">
-                                <p> <strong> <?php echo htmlspecialchars($T_N['titulo'], ENT_QUOTES, 'UTF-8'); ?></strong> <br> <?php echo htmlspecialchars($T_N['cuerpo'], ENT_QUOTES, 'UTF-8'); ?> <br>
-                                    <a href="<?php echo $T_N['ruta'] ?>" target="_blank"> <b> Leer mas...
-                                        </b></a>
-                                </p>
-                            </div>
-                        </div>
-                        <br>
-                <?php }
-                } else {
-                    echo "<center><h5>No hay noticias</h5></center>";
-                }
-                ?>
+                            <br>
+                    <?php }
+                    } else {
+                        echo "<center><h5>No hay noticias</h5></center>";
+                    }
+                    mysqli_close($conexion);
+                    ?>
+                </div> <br><br>
             </div>
         </div>
-    </div>
-    <br><br>
+
+    </main>
+    <br>
+    <footer>
+        <div class="container" style="background: #000000; color:#ffffff; border-radius: 50px;">
+            <p>
+                <br>
+                <center><img src="../img/ubicacion.png" alt="ubicacion" width="20px"> - Colombia &ensp; <img width="20px" src="../img/Descargas-Seguras.png" alt="logo">
+                    - Desacargas Seguras <br><br>
+                    <center>copyright: © Ilder Alberto Gutierrez Beleño</center>
+                    **Toda donación que se realize esta destinada al pago de los servidores y mantenimiento de la
+                    pagina, asi podemos asegurar que esta pagina
+                    siga en funcionamiento.**
+                </center><br>
+            </p>
+        </div>
+    </footer>
 </body>
 
 </html>

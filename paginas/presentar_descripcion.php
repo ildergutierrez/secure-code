@@ -1,5 +1,4 @@
-<?php $cont = 0;
-$valor = 0;
+<?php
 $usuario = "";
 session_start();
 if (isset($_SESSION['Email'])) {
@@ -30,7 +29,8 @@ if ($resultado->num_rows > 0) {
         }
     }
 }
-
+$conexion->close();
+include("../php/publicidad.php");
 ?>
 
 <!DOCTYPE html>
@@ -297,102 +297,48 @@ if ($resultado->num_rows > 0) {
             <br />
             <div class="container" style="width: 87%;">
                 <!-- Publicidad -->
-                <?php
-                include('../php/conexion_bd.php');
-                $p1 = 0;
-                $p2 = 0;
-                $url1 = "";
-                $url2 = "";
-                $img1 = "";
-                $img2 = "";
-                $filas = 0;
-                $sql = "SELECT * FROM publicidad";
-                $resultado = mysqli_query($conexion, $sql);
-
-                if ($resultado) {
-                    $filas = mysqli_num_rows($resultado);
-                }
-
-                if ($filas > 0) {
-                    $urls = array();
-                    while ($fila = mysqli_fetch_array($resultado)) {
-                        if ($fila['Pagos'] > 0) {
-                            $urls[] = $fila['id'];
-                        }
-                    }
-                    if (count($urls) > 0) {
-                        $p1 = rand(0, $filas - 1);
-                        $p2 = rand(0, $filas - 1);
-                    } else {
-                        $p1 = 0;
-                        $p2 = 0;
-                    }
-                    if (count($urls) > 0) {
-                        for ($i = 0; $i < 2; $i++) {
-                            if ($i === 0) {
-                                $sql = "SELECT * FROM publicidad WHERE id = $urls[$p1]";
-                                $resultado = mysqli_query($conexion, $sql);
-                                $publicida = mysqli_fetch_array($resultado);
-                                $url1 = $publicida['Url'];
-                                $img1 = $publicida['imagen'];
-                            } else {
-                                $sql = "SELECT * FROM publicidad WHERE id = $urls[$p2]";
-                                $resultado = mysqli_query($conexion, $sql);
-                                $publicida = mysqli_fetch_array($resultado);
-                                $url2 = $publicida['Url'];
-                                $img2 = $publicida['imagen'];
-                            }
-                        }
-                    }
-                }
-                mysqli_close($conexion);
-                $ruta = "https://raw.githubusercontent.com//ildergutierrez/imagenes/main/publicidad/";
-                if (count($urls) > 0) {
-                ?>
+                <div class="container-md">
+                    <?php p1(); ?>
+                </div>
+                <div class="container-md">
+                    <?php p2(); ?>
+                </div>
             </div>
-            <div class="container-md">
-
-                <a href="php/conteo.php?url=<?php echo base64_encode($url1) ?>&id=<?php echo base64_encode($urls[$p1]) ?>" target="_blank"> <img class="publicidad" src="<?php echo $ruta . $img1 ?>" alt="Publicidad"></a>
-            </div>
-            <div class="container-md">
-                <a href="php/conteo.php?url=<?php echo base64_encode($url2) ?> &id=<?php echo base64_encode($urls[$p2]) ?>" target="_blank"> <img class="publicidad2" src="<?php echo $ruta . $img2 ?>" alt="Publicidad"></img></a>
-            </div>
-        <?php } ?>
-        <div class="container-md" style="background:#fff;">
-            <br><br>
-            <div class="row">
-                <center>
-                    <h1> <?php echo $nombre_p ?></h1>
-                </center>
-            </div>
-            <div class="row" style="width: 90%; border-radius: 15px; background: #D8F7F2; margin: auto;">
-                <div class="col-md-9">
-                    <div class="container-md" style="width: 90%; padding: 40px;">
-                        <b>
-                            <h3>
-                                <center>Descripción</center>
-                            </h3>
-                        </b>
-                        <br>
-                        <i> <?php echo $descibir ?></i>
-                        <br><br>
-                        <center><a class="btn btn-info" href="../php/validar_desarga.php?ruta=<?php echo $_GET['ruta'] ?>&rt=<?php echo $_GET['rt'] ?>&tipo=<?php echo $_GET['tipo'] ?>">Descargar</a>
-                        </center>
+            <div class="container-md" style="background:#fff;">
+                <br><br>
+                <div class="row">
+                    <center>
+                        <h1> <?php echo $nombre_p ?></h1>
+                    </center>
+                </div>
+                <div class="row" style="width: 90%; border-radius: 15px; background: #D8F7F2; margin: auto;">
+                    <div class="col-md-9">
+                        <div class="container-md" style="width: 90%; padding: 40px;">
+                            <b>
+                                <h3>
+                                    <center>Descripción</center>
+                                </h3>
+                            </b>
+                            <br>
+                            <i> <?php echo $descibir ?></i>
+                            <br><br>
+                            <center><a class="btn btn-info" href="../php/validar_desarga.php?ruta=<?php echo $_GET['ruta'] ?>&rt=<?php echo $_GET['rt'] ?>&tipo=<?php echo $_GET['tipo'] ?>">Descargar</a>
+                            </center>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3" style="border-left:solid 1px #000000;">
-                    <br><b>Publicado por: </b><?php echo $Autor ?>
-                    <br><br>
-                    <b>Fecha de publicación: </b><?php echo $Fecha ?>
-                    <br><br>
-                    <b>N° Descargas: </b><?php echo $clic ?>
-                </div>
+                    <div class="col-md-3" style="border-left:solid 1px #000000;">
+                        <br><b>Publicado por: </b><?php echo $Autor ?>
+                        <br><br>
+                        <b>Fecha de publicación: </b><?php echo $Fecha ?>
+                        <br><br>
+                        <b>N° Descargas: </b><?php echo $clic ?>
+                    </div>
 
-                <br />
+                    <br />
+                </div>
+                <br><br>
             </div>
-            <br><br>
-        </div>
-        <br>
+            <br>
         </main>
         <footer>
             <div class="container" style="background: #000000; color: #ffffff; border-radius: 50px">

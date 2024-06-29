@@ -17,29 +17,37 @@ if ($resultado) {
 if ($filas > 0) {
     $urls = array();
     while ($fila = mysqli_fetch_array($resultado)) {
-        $urls[] = $fila['id'];
+        if ($fila['Pagos'] > 0) {
+            $urls[] = $fila['id'];
+        }
     }
-    $p1 = rand(0, $filas - 1);
-    $p2 = rand(0, $filas - 1);
-    for ($i = 0; $i < 2; $i++) {
-        if ($i === 0) {
-            $sql = "SELECT * FROM publicidad WHERE id = $urls[$p1]";
-            $resultado = mysqli_query($conexion, $sql);
-            $publicida = mysqli_fetch_array($resultado);
-            $url1 = $publicida['Url'];
-            $img1 = $publicida['imagen'];
-        } else {
-            $sql = "SELECT * FROM publicidad WHERE id = $urls[$p2]";
-            $resultado = mysqli_query($conexion, $sql);
-            $publicida = mysqli_fetch_array($resultado);
-            $url2 = $publicida['Url'];
-            $img2 = $publicida['imagen'];
+    if (count($urls) > 0) {
+        $p1 = rand(0, $filas - 1);
+        $p2 = rand(0, $filas - 1);
+    } else {
+        $p1 = 0;
+        $p2 = 0;
+    }
+    if (count($urls) > 0) {
+        for ($i = 0; $i < 2; $i++) {
+            if ($i === 0) {
+                $sql = "SELECT * FROM publicidad WHERE id = $urls[$p1]";
+                $resultado = mysqli_query($conexion, $sql);
+                $publicida = mysqli_fetch_array($resultado);
+                $url1 = $publicida['Url'];
+                $img1 = $publicida['imagen'];
+            } else {
+                $sql = "SELECT * FROM publicidad WHERE id = $urls[$p2]";
+                $resultado = mysqli_query($conexion, $sql);
+                $publicida = mysqli_fetch_array($resultado);
+                $url2 = $publicida['Url'];
+                $img2 = $publicida['imagen'];
+            }
         }
     }
 }
 mysqli_close($conexion);
 $ruta = "https://raw.githubusercontent.com//ildergutierrez/imagenes/main/publicidad/";
-
 function mostrarPublicidad($url, $imgen, $ruta, $id, $n)
 {
     $url_envio = base64_encode($url);

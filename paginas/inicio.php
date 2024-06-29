@@ -8,10 +8,11 @@ if (!isset($_SESSION['Email'])) {
 }
 $usuario =  $_SESSION['nombre'];
 $id = $_SESSION['id_user'];
-include("../php/conexion_bd.php");
+include("../php/publicidad.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -155,73 +156,22 @@ include("../php/conexion_bd.php");
             </div>
         </nav>
     </header>
+    <div class="container-md">
+        <!-- Publicidad -->
+        <div class="container-md">
+            <?php p1() ?>
+        </div>
+        <div class="container-md">
+            <?php p2() ?>
+        </div>
+    </div>
     <main>
         <br><br>
         <!-- Donación -->
         <a href="https://www.paypal.com/donate/?hosted_button_id=G4MSNR6JU3PB2" target="_blank"><img class="Donacion" src="../img/donacion paypal.png" alt="Donacion" title="Donación" width="60px" /></a>
         <!-- Fin del boton de donación -->
+        <?php include("../php/conexion_bd.php"); ?>
 
-        <div class="container-md">
-            <!-- Publicidad -->
-            <?php
-            $p1 = 0;
-            $p2 = 0;
-            $url1 = "";
-            $url2 = "";
-            $img1 = "";
-            $img2 = "";
-            $filas = 0;
-            $sql = "SELECT * FROM publicidad";
-            $resultado = mysqli_query($conexion, $sql);
-
-            if ($resultado) {
-                $filas = mysqli_num_rows($resultado);
-            }
-
-            if ($filas > 0) {
-                $urls = array();
-                while ($fila = mysqli_fetch_array($resultado)) {
-                    if ($fila['Pagos'] > 0) {
-                        $urls[] = $fila['id'];
-                    }
-                }
-                if (count($urls) > 0) {
-                    $p1 = rand(0, $filas - 1);
-                    $p2 = rand(0, $filas - 1);
-                } else {
-                    $p1 = 0;
-                    $p2 = 0;
-                }
-                if (count($urls) > 0) {
-                    for ($i = 0; $i < 2; $i++) {
-                        if ($i === 0) {
-                            $sql = "SELECT * FROM publicidad WHERE id = $urls[$p1]";
-                            $resultado = mysqli_query($conexion, $sql);
-                            $publicida = mysqli_fetch_array($resultado);
-                            $url1 = $publicida['Url'];
-                            $img1 = $publicida['imagen'];
-                        } else {
-                            $sql = "SELECT * FROM publicidad WHERE id = $urls[$p2]";
-                            $resultado = mysqli_query($conexion, $sql);
-                            $publicida = mysqli_fetch_array($resultado);
-                            $url2 = $publicida['Url'];
-                            $img2 = $publicida['imagen'];
-                        }
-                    }
-                }
-            }
-
-            $ruta = "https://raw.githubusercontent.com//ildergutierrez/imagenes/main/publicidad/";
-            if (count($urls) > 0) {
-            ?>
-                <div class="container-md">
-                    <a href="php/conteo.php?url=<?php echo base64_encode($url1) ?>&id=<?php echo base64_encode($urls[$p1]) ?>" target="_blank"> <img class="publicidad" src="<?php echo $ruta . $img1 ?>" alt="Publicidad"></a>
-                </div>
-                <div class="container-md">
-                    <a href="php/conteo.php?url=<?php echo base64_encode($url2) ?> &id=<?php echo base64_encode($urls[$p2]) ?>" target="_blank"> <img class="publicidad2" src="<?php echo $ruta . $img2 ?>" alt="Publicidad"></img></a>
-                </div>
-            <?php } ?>
-        </div>
         <div class="container" style="width: 77%; padding: 0; background: #cfe2ff;">
             <div class="container" style=" background: lightgray; border-radius: 15px">
                 <div class="container" style="  border-radius: 15px; padding: 35px; text-align: justify; ">

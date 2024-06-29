@@ -199,7 +199,6 @@ include("../php/publicidad.php");
                     p2();
                     ?>
                 </div>
-
             </div>
             <div class="container-md" style="background:#fff; width: 77%;">
                 <br><br> <br><br>
@@ -207,7 +206,6 @@ include("../php/publicidad.php");
                     <center>
                         <h1> <?php echo $nombre_p ?></h1>
                     </center>
-
                 </div> <br><br>
                 <div class="row" style="width: 90%; border-radius: 15px; background: #D8F7F2; margin: auto;">
                     <div class="col-md-9">
