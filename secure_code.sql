@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-06-2024 a las 04:29:29
+-- Tiempo de generación: 03-07-2024 a las 05:27:55
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -38,6 +38,42 @@ CREATE TABLE `csharp` (
   `clic` int(11) NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `empleados`
+--
+
+CREATE TABLE `empleados` (
+  `id` int(11) NOT NULL,
+  `area` varchar(30) NOT NULL,
+  `salario` int(20) NOT NULL,
+  `ingreso` date NOT NULL,
+  `Cargo` varchar(60) NOT NULL,
+  `estado` int(1) NOT NULL,
+  `E-mail_Empresa` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `funcionario`
+--
+
+CREATE TABLE `funcionario` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(100) NOT NULL,
+  `password` varchar(600) NOT NULL,
+  `Cargo` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `funcionario`
+--
+
+INSERT INTO `funcionario` (`id`, `usuario`, `password`, `Cargo`) VALUES
+(12345678, 'ilder@gmail.com', '49505152', 0);
 
 -- --------------------------------------------------------
 
@@ -81,6 +117,28 @@ INSERT INTO `noticias` (`id`, `titulo`, `img`, `cuerpo`, `ruta`) VALUES
 (3, 'NVIDIA venderá sus GPU para IA en Oriente Medio a pesar de las sanciones. Representa una oportunidad para China', 'https://i.blogs.es/1c3e80/nvidia-ap/1200_800.jpeg', 'Las sanciones a China aprobadas por el Gobierno de EEUU han dañado el negocio de algunas grandes compañías tecnológicas, como ASML, Intel, AMD o NVIDIA. La demanda de GPU para inteligencia artificial (IA) es tan alta que esta última empresa continúa creciendo con un ritmo abrumador, pero lo cierto es que no puede vender a sus clientes chinos buena parte de sus GPU. Y, curiosamente, las sanciones no solo condicionan sus negocios en China; también restringen las ventas que puede llevar a cabo en otras regiones del planeta.', 'https://www.xataka.com/robotica-e-ia/nvidia-vendera-sus-gpu-para-ia-oriente-medio-a-pesar-sanciones-representa-oportunidad-para-china'),
 (4, 'Cómo funciona el dispositivo implantado por primera vez en el mundo en el cráneo de un niño para controlar la epilepsia', 'https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/7451/live/8b1e8470-3220-11ef-a044-9d4367d5b599.jpg.webp', 'Un niño con epilepsia severa se convirtió en el primer paciente del mundo en probar un nuevo dispositivo colocado en su cráneo para controlar las convulsiones.', 'https://www.bbc.com/mundo/articles/cw8881n91zjo'),
 (5, 'Asistentes virtuales: la voz del amo', 'https://imagenes.elpais.com/resizer/v2/PS4WVC32LRGXPHIGT2NDROXOOY.jpeg?auth=396c43c2ce3fdcafc56a74a36545a884e76fc7e8e8f3e5343792aa9dc75d9708&width=828&height=466&focal=2299%2C1407', 'El mayor triunfo de los asistentes virtuales es que nos dan la sensación de que alguien, en este mundo en que no somos relevantes más que como parte de una clientela, nos escucha, atiende y obedece', 'https://elpais.com/noticias/tecnologia/');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `persona`
+--
+
+CREATE TABLE `persona` (
+  `id` int(11) NOT NULL,
+  `Nombre Completo` varchar(80) NOT NULL,
+  `Cumpleanos` date NOT NULL,
+  `Telefono` varchar(20) NOT NULL,
+  `Direccion` varchar(100) NOT NULL,
+  `E-mail` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `persona`
+--
+
+INSERT INTO `persona` (`id`, `Nombre Completo`, `Cumpleanos`, `Telefono`, `Direccion`, `E-mail`) VALUES
+(12345678, 'Ilder Gutierrez', '2024-07-16', '323', 'dwdqw', 'ilder1296@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -146,6 +204,20 @@ CREATE TABLE `usuarios` (
   `verificacion` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vacaciones`
+--
+
+CREATE TABLE `vacaciones` (
+  `id` int(11) NOT NULL,
+  `id_usuario` int(20) NOT NULL,
+  `Dias_permiso` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `regreso` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
 --
 -- Índices para tablas volcadas
 --
@@ -154,6 +226,18 @@ CREATE TABLE `usuarios` (
 -- Indices de la tabla `csharp`
 --
 ALTER TABLE `csharp`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `empleados`
+--
+ALTER TABLE `empleados`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `funcionario`
+--
+ALTER TABLE `funcionario`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -166,6 +250,12 @@ ALTER TABLE `java`
 -- Indices de la tabla `noticias`
 --
 ALTER TABLE `noticias`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `persona`
+--
+ALTER TABLE `persona`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -187,6 +277,12 @@ ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `vacaciones`
+--
+ALTER TABLE `vacaciones`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -195,6 +291,12 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `csharp`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `empleados`
+--
+ALTER TABLE `empleados`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `java`
@@ -207,6 +309,12 @@ ALTER TABLE `java`
 --
 ALTER TABLE `noticias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `persona`
+--
+ALTER TABLE `persona`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12345679;
 
 --
 -- AUTO_INCREMENT de la tabla `publicidad`
