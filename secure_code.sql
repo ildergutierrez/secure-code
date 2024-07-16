@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-07-2024 a las 05:27:55
+-- Tiempo de generación: 16-07-2024 a las 04:28:06
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,6 +20,39 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `secure code`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `areas`
+--
+
+CREATE TABLE `areas` (
+  `id` int(11) NOT NULL,
+  `Nombre` varchar(60) NOT NULL,
+  `indicativo` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `areas`
+--
+
+INSERT INTO `areas` (`id`, `Nombre`, `indicativo`) VALUES
+(1, 'Administración y Finanzas', 0),
+(2, 'Ventas y Marketing', 0),
+(3, 'Operaciones y Producción', 0),
+(4, 'Servicio al Cliente', 0),
+(5, 'Tecnología y Soporte', 0),
+(6, 'Gerente Administrativo y Financiero', 1),
+(7, 'Asistente Administrativo', 1),
+(8, 'Gerente de Ventas y Marketing', 2),
+(9, 'Asistente de Ventas y Marketing', 2),
+(10, 'Gerente de Operaciones', 3),
+(11, 'Operador de Producción', 3),
+(12, 'Coordinador de Servicio al Cliente', 4),
+(13, 'Representante de Servicio al Cliente', 4),
+(14, 'Administrador de Sistemas', 5),
+(15, 'Soporte Técnico', 5);
 
 -- --------------------------------------------------------
 
@@ -51,8 +84,7 @@ CREATE TABLE `empleados` (
   `salario` int(20) NOT NULL,
   `ingreso` date NOT NULL,
   `Cargo` varchar(60) NOT NULL,
-  `estado` int(1) NOT NULL,
-  `E-mail_Empresa` varchar(100) NOT NULL
+  `estado` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -133,13 +165,6 @@ CREATE TABLE `persona` (
   `E-mail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
---
--- Volcado de datos para la tabla `persona`
---
-
-INSERT INTO `persona` (`id`, `Nombre Completo`, `Cumpleanos`, `Telefono`, `Direccion`, `E-mail`) VALUES
-(12345678, 'Ilder Gutierrez', '2024-07-16', '323', 'dwdqw', 'ilder1296@gmail.com');
-
 -- --------------------------------------------------------
 
 --
@@ -153,12 +178,10 @@ CREATE TABLE `publicidad` (
   `imagen` varchar(100) NOT NULL,
   `clic` int(11) NOT NULL,
   `Fecha` date NOT NULL,
-  `Fecha_L` date NOT NULL,
   `Pagos` int(1) NOT NULL,
   `Forma_de_Pago` int(2) NOT NULL,
-  `dias` int(4) NOT NULL,
-  `Mensualidad` int(10) NOT NULL,
-  `ultimopago` date NOT NULL,
+  `V_Click` int(100) NOT NULL,
+  `Total` int(10) NOT NULL,
   `empleado` int(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
@@ -166,9 +189,9 @@ CREATE TABLE `publicidad` (
 -- Volcado de datos para la tabla `publicidad`
 --
 
-INSERT INTO `publicidad` (`id`, `Empresa`, `Url`, `imagen`, `clic`, `Fecha`, `Fecha_L`, `Pagos`, `Forma_de_Pago`, `dias`, `Mensualidad`, `ultimopago`, `empleado`) VALUES
-(1, 'Chers Aguachica', 'https://www.instagram.com/chers_aguachica/', 'chers_aguachica_instagran.gif', 2, '2024-06-18', '2024-07-18', 1, 0, 0, 0, '0000-00-00', 0),
-(2, 'Chers Aguachica', 'https://www.facebook.com/chersaguachica', 'chers_aguachica.gif', 2, '2024-06-18', '2024-07-18', 1, 0, 0, 0, '0000-00-00', 0);
+INSERT INTO `publicidad` (`id`, `Empresa`, `Url`, `imagen`, `clic`, `Fecha`, `Pagos`, `Forma_de_Pago`, `V_Click`, `Total`, `empleado`) VALUES
+(1, 'Chers Aguachica', 'https://www.facebook.com/chersaguachica', 'chers_aguachica_instagran.gif', 1, '2024-06-18', 1, 0, 200, 100, 0),
+(2, 'Chers Aguachica', 'https://www.instagram.com/chers_aguachica/', 'chers_aguachica.gif', 1, '2024-06-18', 1, 0, 200, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -221,6 +244,12 @@ CREATE TABLE `vacaciones` (
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `areas`
+--
+ALTER TABLE `areas`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `csharp`
@@ -287,6 +316,12 @@ ALTER TABLE `vacaciones`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `areas`
+--
+ALTER TABLE `areas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT de la tabla `csharp`
 --
 ALTER TABLE `csharp`
@@ -314,7 +349,7 @@ ALTER TABLE `noticias`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12345679;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `publicidad`
