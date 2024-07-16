@@ -1,7 +1,13 @@
 <?php
 $conteo = 0;
+$valor = 0;
+$T_actual = 0;
+$T_final = 0;
 $url = base64_decode($_GET['url']);
 $id = base64_decode($_GET['id']);
+
+// echo $url . "---" . $id;
+// exit();
 
 if ($url == null || $id == null) {
     header("Location: ../index.php");
@@ -14,10 +20,17 @@ if ($resultado->num_rows > 0) {
     while ($row = $resultado->fetch_assoc()) {
         if ($row['id'] == $id) {
             $conteo = $row['clic'];
+            $valor = $row['V_Click'];
+            $T_actual = $row['Total'];
+            $T_final = $T_actual - $valor;
             $conteo++;
         }
     }
-    $sql = "UPDATE publicidad SET clic = '$conteo' WHERE id = '$id'";
+    if ($T_final < $valor) {
+        $sql = "UPDATE publicidad SET `clic` = '$conteo',`Pagos`='0',`Total`='$T_final' WHERE id = '$id'";
+    } else {
+        $sql = "UPDATE publicidad SET `clic` = '$conteo',`Total`='$T_final' WHERE id = '$id'";
+    }
     if ($conexion->query($sql) === TRUE) {
         header("Location: $url");
     } else {
